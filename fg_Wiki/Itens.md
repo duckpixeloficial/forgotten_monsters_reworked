@@ -11,5 +11,5 @@
 - Skull King trophy
 - Skull King's Hammer
 
---
+---
 See the recipes [here](https://codeberg.org/pixelzone/zombies4test_reload/src/branch/main/zwiki/Recipes.md)  

@@ -18,15 +18,15 @@ These mobs are based on "Mob Monsters" from "TenPlus1"!
 - optional_depends = hunger_ng,3d_armor
 ---
 
-1 - [Getting Starded](https://codeberg.org/pixelzone/zombies4test_reload/src/branch/main/zwiki/Getting_Started.md)
+1 - [Getting Starded](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Getting_Starded.md)
 
-2 - [Mobs](https://codeberg.org/pixelzone/zombies4test_reload/src/branch/main/zwiki/Mobs.md)
+2 - [Mobs](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Mobs.md)
 
-3 - [Itens](https://codeberg.org/pixelzone/zombies4test_reload/src/branch/main/zwiki/Mobs.md)
+3 - [Itens](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Itens.md)
 
 4 - [Blocks](https://codeberg.org/pixelzone/zombies4test_reload/src/branch/main/zwiki/Mobs.md)
 
-3 - [Recipes](https://codeberg.org/pixelzone/zombies4test_reload/src/branch/main/zwiki/Recipes.md) 
+3 - [Recipes](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Recipes.md) 
 
 
 ---
