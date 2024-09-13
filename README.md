@@ -12,7 +12,7 @@ These mobs are based on "Mob Monsters" from "TenPlus1"!
 - CREDITS : TenPlus1
 - LICENSE : MIT
 - TEXTURE : CC-BY-4.0
-- VERSION : 0.023
+- VERSION : 0.1.1 Alpha
 - 
 - depends = Mobs
 - optional_depends = hunger_ng,3d_armor
