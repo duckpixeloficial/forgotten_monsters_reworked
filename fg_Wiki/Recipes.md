@@ -1,8 +1,8 @@
-### Recipes
+## Recipes
 ---
 ---
 
--- Pick Bones
+####-- Pick Bones
 
 [ Buried Bone ] [ Buried Bone ] [ Buried Bone ]
 
@@ -11,7 +11,7 @@
 [ ] [ Buried Bone ] [ ]
 
 
- -- Shovel Bones
+ ####-- Shovel Bones
 
 [ Buried Bone ] [ Buried Bone ] [ ]
 
@@ -20,7 +20,7 @@
 [ ] [ Buried Bone ] [ ]
 
 
--- Axe Bones
+####-- Axe Bones
 
 [ Buried Bone ] [ Buried Bone ] [ ]
 
@@ -29,7 +29,7 @@
 [ ] [ Buried Bone ] [ ]
 
 
--- Sword Bones
+####-- Sword Bones
 
 [ ] [ Buried Bone ] [ ]
 
@@ -39,7 +39,7 @@
 
 
 ---
--- Old Bottle
+####-- Old Bottle
 
 [ ] [ Group Glass ] [ ]
 
@@ -48,7 +48,7 @@
 [ Group Glass ] [ Group Glass ] [ Group Glass ]
 
 
--- Healing
+####-- Healing
 
 [ ] [ ] [ ]
 
@@ -59,7 +59,7 @@
 
 
 ---
--- Buried Bone Block
+####-- Buried Bone Block
 
 [ Buried Bone ] [ Buried Bone ] [ Buried Bone ]
 
@@ -69,7 +69,7 @@
 
 
 ---
--- Translocation Rod
+####-- Translocation Rod
 
 [ ] [ Spectrum Orb ] [ ]
 
@@ -79,7 +79,7 @@
 
 
 ---
--- Crumpled Paper
+####-- Crumpled Paper
 
 [ ] [ Group Leaves ] [ ]
 
@@ -89,7 +89,7 @@
 
 
 
--- Forgotten Book
+####-- Forgotten Book
 
 [ Crumpled Paper ] [ Crumpled Paper ] [ Crumpled Paper ]
 
@@ -100,7 +100,7 @@
 
 ---
 
--- Spectrum Orb Block
+####-- Spectrum Orb Block
 
 [ Spectrum Orb ] [ Spectrum Orb ] [ Spectrum Orb ]
 
@@ -111,7 +111,7 @@
 
 ---
 
--- Summon Mese Lord
+####-- Summon Mese Lord
 
 [ Forgotten Book ] [ Forgotten Book ] [ Forgotten Book ]
 
@@ -120,7 +120,7 @@
 [ Forgotten Book ] [ Forgotten Book ] [ Forgotten Book ]
 
 
--- Summon Golem
+####-- Summon Golem
 
 [ Forgotten Book ] [ Spectrum Orb Block ] [ Forgotten Book ]
 
@@ -130,7 +130,7 @@
 
 
 
--- Summon Skull King
+####-- Summon Skull King
 
 [ Forgotten Book ] [ Buried Bone Block ] [ Forgotten Book]
 

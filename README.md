@@ -24,9 +24,7 @@ These mobs are based on "Mob Monsters" from "TenPlus1"!
 
 3 - [Itens](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Itens.md)
 
-4 - [Blocks](https://codeberg.org/pixelzone/zombies4test_reload/src/branch/main/zwiki/Mobs.md)
-
-3 - [Recipes](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Recipes.md) 
+4 - [Recipes](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Recipes.md) 
 
 
 ---
