@@ -2,7 +2,7 @@
 ---
 ---
 
-####-- Pick Bones
+#### Pick Bones
 
 [ Buried Bone ] [ Buried Bone ] [ Buried Bone ]
 
@@ -10,26 +10,29 @@
 
 [ ] [ Buried Bone ] [ ]
 
+-
 
- ####-- Shovel Bones
-
-[ Buried Bone ] [ Buried Bone ] [ ]
-
-[ ] [ Buried Bone ] [ ]
-
-[ ] [ Buried Bone ] [ ]
-
-
-####-- Axe Bones
-
-[ Buried Bone ] [ Buried Bone ] [ ]
+ #### Shovel Bones
 
 [ Buried Bone ] [ Buried Bone ] [ ]
 
 [ ] [ Buried Bone ] [ ]
 
+[ ] [ Buried Bone ] [ ]
 
-####-- Sword Bones
+-
+
+#### Axe Bones
+
+[ Buried Bone ] [ Buried Bone ] [ ]
+
+[ Buried Bone ] [ Buried Bone ] [ ]
+
+[ ] [ Buried Bone ] [ ]
+
+-
+
+#### Sword Bones
 
 [ ] [ Buried Bone ] [ ]
 
@@ -37,9 +40,10 @@
 
 [ ] [ Buried Bone ] [ ]
 
+-
 
 ---
-####-- Old Bottle
+#### Old Bottle
 
 [ ] [ Group Glass ] [ ]
 
@@ -47,8 +51,9 @@
 
 [ Group Glass ] [ Group Glass ] [ Group Glass ]
 
+-
 
-####-- Healing
+#### Healing
 
 [ ] [ ] [ ]
 
@@ -56,10 +61,10 @@
 
 [ ] [ Old Bottle ] [ ]
 
-
+-
 
 ---
-####-- Buried Bone Block
+#### Buried Bone Block
 
 [ Buried Bone ] [ Buried Bone ] [ Buried Bone ]
 
@@ -67,9 +72,10 @@
 
 [ Buried Bone ] [ Buried Bone ] [ Buried Bone ]
 
+-
 
 ---
-####-- Translocation Rod
+#### Translocation Rod
 
 [ ] [ Spectrum Orb ] [ ]
 
@@ -77,9 +83,10 @@
 
 [ ] [ Spectrum Orb ] [ ]
 
+-
 
 ---
-####-- Crumpled Paper
+#### Crumpled Paper
 
 [ ] [ Group Leaves ] [ ]
 
@@ -87,20 +94,21 @@
 
 [ ] [ Group Leaves ] [ ]
 
+-
 
-
-####-- Forgotten Book
-
-[ Crumpled Paper ] [ Crumpled Paper ] [ Crumpled Paper ]
+#### Forgotten Book
 
 [ Crumpled Paper ] [ Crumpled Paper ] [ Crumpled Paper ]
 
 [ Crumpled Paper ] [ Crumpled Paper ] [ Crumpled Paper ]
 
+[ Crumpled Paper ] [ Crumpled Paper ] [ Crumpled Paper ]
+
+-
 
 ---
 
-####-- Spectrum Orb Block
+#### Spectrum Orb Block
 
 [ Spectrum Orb ] [ Spectrum Orb ] [ Spectrum Orb ]
 
@@ -108,10 +116,11 @@
 
 [ Spectrum Orb ] [ Spectrum Orb ] [ Spectrum Orb ]
 
+-
 
 ---
 
-####-- Summon Mese Lord
+#### Summon Mese Lord
 
 [ Forgotten Book ] [ Forgotten Book ] [ Forgotten Book ]
 
@@ -119,8 +128,9 @@
 
 [ Forgotten Book ] [ Forgotten Book ] [ Forgotten Book ]
 
+-
 
-####-- Summon Golem
+#### Summon Golem
 
 [ Forgotten Book ] [ Spectrum Orb Block ] [ Forgotten Book ]
 
@@ -128,9 +138,9 @@
 
 [ Forgotten Book ] [ Spectrum Orb Block ] [ Forgotten Book ]
 
+-
 
-
-####-- Summon Skull King
+#### Summon Skull King
 
 [ Forgotten Book ] [ Buried Bone Block ] [ Forgotten Book]
 
@@ -140,6 +150,11 @@
 
 
 ---
+---
+
+
+---
+
 
 
 

@@ -181,7 +181,13 @@ minetest.register_tool("forgotten_monsters:pick_bones", {
 		},
 		damage_groups = {fleshy=7},
 	},
-	--sound = {breaks = {""},
+	
+	sound = {
+	--breaks = "default_tool_breaks",
+	punch_use = "swoosh1",
+	punch_use_air ="swoosh1",
+	},
+	
 	groups = {pickaxe = 1}
 })
 
@@ -198,7 +204,13 @@ minetest.register_tool("forgotten_monsters:shovel_bones", {
 		},
 		damage_groups = {fleshy=4},
 	},
-	sound = {breaks = ""},
+	
+	sound = {
+	--breaks = "default_tool_breaks",
+	punch_use = "swoosh1",
+	punch_use_air ="swoosh1",
+	},
+	
 	groups = {shovel = 1}
 })
 
@@ -214,7 +226,13 @@ minetest.register_tool("forgotten_monsters:axe_bones", {
 		},
 		damage_groups = {fleshy=5},
 	},
-	sound = {breaks = ""},
+	
+	sound = {
+	--breaks = "default_tool_breaks",
+	punch_use = "swoosh1",
+	punch_use_air ="swoosh1",
+	},
+	
 	groups = {axe = 1}
 })
 
@@ -230,7 +248,13 @@ minetest.register_tool("forgotten_monsters:sword_bones", {
 		},
 		damage_groups = {fleshy=7},
 	},
-	sound = {breaks = ""},
+	
+	sound = {
+	--breaks = "default_tool_breaks",
+	punch_use = "swoosh1",
+	punch_use_air ="swoosh1",
+	},
+	
 	groups = {sword = 1}
 })
 
@@ -256,11 +280,20 @@ minetest.register_node("forgotten_monsters:hammer", {
 		},
 		damage_groups = {fleshy=10},
 	},
-	sound = {breaks = "default_tool_breaks"},
+	
+	
+	sound = {
+	--breaks = "default_tool_breaks",
+	punch_use = "swoosh1",
+	punch_use_air ="swoosh1",
+	
+	},
+	
+	
 	groups = {sword = 1,pickaxe = 1,dig_immediate=3},
 	paramtype = "light",
 
--- CAIXA DE COLISÃO :
+
 	paramtype2 = "facedir",
 		selection_box = {
 			type = "fixed", -- fica no formato da caixa se ajustado
@@ -269,6 +302,8 @@ minetest.register_node("forgotten_monsters:hammer", {
 				
 			},
 		},
+		
+		
 		
 		
 	
