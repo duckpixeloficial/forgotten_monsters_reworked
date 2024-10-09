@@ -16,6 +16,7 @@ These mobs are based on "Mob Monsters" from "TenPlus1"!
 - depends = Mobs
 - optional_depends = hunger_ng,3d_armor
 ---
+---
 
 1 - [Getting Starded](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Getting_Starded.md)
 
