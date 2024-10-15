@@ -1,0 +1,4 @@
+
+#  Enable daytime skullss ,Alpha teste..
+
+skulls_day (Enable daytime skulls) bool true

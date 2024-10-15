@@ -36,12 +36,25 @@ mobs:register_mob("forgotten_monsters:meselord", {
 
 	fly = true ,
 	fly_in = "air",
-	walk_velocity = 3,
-	run_velocity = 5,
-	jump_height = 4,
+	-----------------------
+	pathfinding = 1,
+	fear_height = 6,
 	stepheight = 3,
+
+	walk_velocity = 2,
+	run_velocity = 5,
+	walk_chance = 50,
+	stand_chance = 50,
+
+	jump = true,
+	jump_height = 3,
 	floats = 0,
 	view_range = 40,
+	-------------------------
+
+
+
+
 	drops = {
 	        {name = "forgotten_monsters:heart_of_mese", chance = 1, min = 1, max = 1},
 		{name = "forgotten_monsters:meselord_trophy", chance = 1, min = 1, max = 1},

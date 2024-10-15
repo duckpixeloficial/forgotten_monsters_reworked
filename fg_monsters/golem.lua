@@ -28,15 +28,26 @@ mobs:register_mob("forgotten_monsters:golem", {
 	blood_texture = "faisca.png",
 	makes_footstep_sound = true,
 	sounds = {
-		attack = "monster",
+		--attack = "monster",
+		damage = "damage_golem",
 		--death = "",
 	},
+	
+	-----------------------
+	pathfinding = 1,
+	fear_height = 6,
+	stepheight = 3,
+
 	walk_velocity = 2,
 	run_velocity = 4,
-	jump_height = 5,
-	stepheight = 3.0,
+	walk_chance = 50,
+	stand_chance = 50,
+
+	jump = true,
+	jump_height = 3,
 	floats = 0,
 	view_range = 35,
+	-------------------------
 	drops = {
 		--{name = " ", chance = 2, min = 1, max = 1},
 		{name = "forgotten_monsters:golem_trophy", chance = 1, min = 1, max = 1},
@@ -90,7 +101,7 @@ mobs:register_mob("forgotten_monsters:golem", {
 		        })
 		                		
 		        
-		        self.object:set_animation({x=140, y=180},15, 1, false)      				
+		    self.object:set_animation({x=140, y=180},15, 1, false)      				
 			self.attack:set_pos({x=pp.x+5,y=pp.y+3,z=pp.z})     			
 			minetest.sound_play("impact_golem", {pos = pos, gain = 0.5})
 				   

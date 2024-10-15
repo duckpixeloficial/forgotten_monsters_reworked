@@ -33,6 +33,7 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 
 	fly = true ,
 	fly_in = "air",
+	pathfinding = 1,
 	walk_velocity = 1,
 	run_velocity = 5,
 	jump_height = 1,

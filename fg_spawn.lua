@@ -1,52 +1,49 @@
 
 
 local skull_spawns = {
---[[
-"default:dirt",
-"default:dirt_with_rainforest_litter",
-"default:dirt_with_grass",
-"default:dirt_with_dry_grass",
-"default:dry_dirt_with_dry_grass",
-"default:dirt_with_coniferous_litter",
-"default:stone",
-"default:ice",
-"default:snowblock",
-"default:dirt_with_snow",
-"default:sand",
-"default:desert_sand",
-"default:desert_stone",
-"default:stone",
-"default:desert_stone",
---"default:cobble",
-"default:mossycobble",
-"default:chest",
-"default:ice",
-
-]]
 
 "group:stone",
 "group:soil",
 "group:leaves",
 "group:dirt",
-"group:ash"
+"group:ash",
+"group:crumbly"
 
 }
 
 
+--[[
+-- caso venha desovar dentro de alguma casa com node do grupo de pedra
+local skull_spawn_caves = {
+	"group:stone",
+	"group:crumbly"
+}
+]]
+
 
 
 --  SKULLS : ===========================================================================
--- Algumas caveiras não deverar surgir no mcl , aqueira e normal
 
+local max_light_skull = 7
+
+-- Opção para não surgir de dia ..
+if minetest.settings:get_bool("skulls_day") then
+
+   max_light_skull = 14
+	
+end
+
+-- Algumas caveiras não deverar surgir no mcl , aqueira e normal
 if not minetest.get_modpath("mcl_core") then
+
 mobs:spawn({
 	name = "forgotten_monsters:sarchers",
 	nodes = skull_spawns,
+	neighbors = "air",
 	min_light = 0,
-	max_light = 14,
+	max_light = max_light_skull,
 	chance = 7000,
 	--min_height = 0,
-	--max_height = 200,
 	max_height = 200,
 })
 
@@ -54,15 +51,18 @@ mobs:spawn({
 mobs:spawn({
 	name = "forgotten_monsters:skull",
 	nodes = skull_spawns,
+	neighbors = "air",
 	min_light = 0,
-	max_light = 14,
+	max_light = max_light_skull,
 	chance = 8000,
 	--min_height = 0,
-	--max_height = 200,
 	max_height = 200,
 	active_object_count = 1,
 
 })
+
+
+-- CAVERNAS : 
 
 end
 
@@ -71,8 +71,9 @@ end
 mobs:spawn({
 	name = "forgotten_monsters:skull_berserker",
 	nodes = skull_spawns,
+	neighbors = "air",
 	min_light = 0,
-	max_light = 14,
+	max_light = max_light_skull,
 	chance = 7000,
 	--min_height = 0,
 	--max_height = 200,
@@ -84,10 +85,11 @@ mobs:spawn({
 
 
 mobs:spawn({
-	name = "forgotten_monsters:sword",
+	name = "forgotten_monsters:ssword",
 	nodes = skull_spawns,
+	neighbors = "air",
 	min_light = 0,
-	max_light = 14,
+	max_light = max_light_skull,
 	chance = 7000,
 	--min_height = 0,
 	--max_height = 200,
@@ -115,6 +117,7 @@ mobs:spawn({
 mobs:spawn({
 	name = "forgotten_monsters:hungry",
 	nodes = {"group:soil"},
+	neighbors = "air",
 	min_light = 14,
 	--interval = 30, -- 60
 	chance = 9000,

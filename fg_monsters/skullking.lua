@@ -31,12 +31,21 @@ mobs:register_mob("forgotten_monsters:sking", {
 		attack = "skullking",
 		death = "falling_bones",
 	},
-	walk_velocity = 2, --2
-	run_velocity = 7,  --5
-	jump_height = 3,   -- 8
+	-----------------------
+	pathfinding = 1,
+	fear_height = 6,
 	stepheight = 3,
+
+	walk_velocity = 2,
+	run_velocity = 6,
+	walk_chance = 50,
+	stand_chance = 50,
+
+	jump = true,
+	jump_height = 3,
 	floats = 0,
 	view_range = 35,
+	-------------------------
 	drops = {
 		--{name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1},
 		{name = "forgotten_monsters:hammer", chance = 1, min = 1, max = 1},
@@ -95,9 +104,16 @@ mobs:register_mob("forgotten_monsters:sking", {
 		        })
 		                		
 		        
-		        self.object:set_animation({x=100, y=120},35, 1, false)      				
+		    self.object:set_animation({x=100, y=120},15, 1, false)      				
 			self.attack:set_pos({x=pp.x+5,y=pp.y+2,z=pp.z})     
 			minetest.sound_play("air_impact", {pos = pos, gain = 0.5})
+
+			minetest.after(1 , function ()
+				self.object:set_animation({x=20, y=60},15, 1, false)   
+                
+				local pos =  self.object:get_pos()
+			
+			end)
 				   
 		 end
 	    end
@@ -108,7 +124,7 @@ mobs:register_mob("forgotten_monsters:sking", {
 	on_die = function(self, pos) 
 	
 		--[[
-			for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do 
+			for _,players in pairs(minetest.get_objects_inside_radius(pos,40)) do 
 					if players:is_player() then -- SE PLAYER
 						
 					end
@@ -134,7 +150,7 @@ mobs:register_mob("forgotten_monsters:sking", {
             collisiondetection = false,
             vertical = false, 
             texture = "part_spawn_king.png", 
-            glow = 14, 
+            glow = 7, 
         })
 
 	end

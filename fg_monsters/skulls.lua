@@ -28,12 +28,19 @@ mobs:register_mob("forgotten_monsters:skull", {
 		--attack = "",
 		death = "falling_bones",
 	},
-	walk_velocity = 1,
-	run_velocity = 5,
-	jump_height = 1,
+	-----------------------
+	pathfinding = 1,
+	fear_height = 6,
 	stepheight = 1.1,
+	walk_velocity = 1,
+	run_velocity = 4,
+	walk_chance = 50,
+	stand_chance = 50,
+	jump = true,
+	jump_height = 1.1,
 	floats = 0,
-	view_range = 20,
+	view_range = 25,
+	-------------------------
 	drops = {
 		{name = "forgotten_monsters:buried_bone", chance = 1, min = 1, max = 1},
 
