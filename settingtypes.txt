@@ -1,4 +1,4 @@
 
 #  Enable daytime skullss ,Alpha teste..
 
-skulls_day (Enable daytime skulls) bool true
+forgotten_monsters.daytime (Skulls in the light) bool true

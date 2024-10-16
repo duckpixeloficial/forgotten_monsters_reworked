@@ -1,4 +1,4 @@
-
+forgotten_monsters.daytime = minetest.settings:get_bool("forgotten_monsters.daytime", true)
 
 local skull_spawns = {
 
@@ -26,15 +26,15 @@ local skull_spawn_caves = {
 
 local max_light_skull = 7
 
--- Opção para não surgir de dia ..
-if minetest.settings:get_bool("skulls_day") then
+
+if forgotten_monsters.daytime then -- Opção para não surgir de dia ..
 
    max_light_skull = 14
 	
 end
 
--- Algumas caveiras não deverar surgir no mcl , aqueira e normal
-if not minetest.get_modpath("mcl_core") then
+
+if not minetest.get_modpath("mcl_core") then -- Algumas caveiras não deverar surgir no mcl , arqueira e normal
 
 mobs:spawn({
 	name = "forgotten_monsters:sarchers",
@@ -61,8 +61,6 @@ mobs:spawn({
 
 })
 
-
--- CAVERNAS : 
 
 end
 
