@@ -295,6 +295,8 @@ minetest.register_node("forgotten_monsters:hammer", {
 	
 	
 	groups = {sword = 1,pickaxe = 1,dig_immediate=3},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 5,
 	paramtype = "light",
 
 
@@ -326,7 +328,9 @@ minetest.register_node("forgotten_monsters:hammer", {
 	tiles = {"trufeus_meselord.png"},
 	use_texture_alpha = "clip",
 	wield_scale = {x=1, y=1, z=1},
-	groups = {dig_immediate=3},
+	groups = {dig_immediate=3,axey=1},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 3,
 	paramtype = "light",
 
 -- CAIXA DE COLISÃO :
@@ -354,7 +358,9 @@ minetest.register_node("forgotten_monsters:golem_trophy", {
 	tiles = {"trufeus_golem.png"},
 	use_texture_alpha = "clip",
 	wield_scale = {x=1, y=1, z=1},
-	groups = {dig_immediate=3},
+	groups = {dig_immediate=3,axey=1},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 3,
 	paramtype = "light",
 
 -- CAIXA DE COLISÃO :
@@ -381,7 +387,9 @@ minetest.register_node("forgotten_monsters:skullking_trophy", {
 	tiles = {"trufeus_skull_king.png"},
 	use_texture_alpha = "clip",
 	wield_scale = {x=1, y=1, z=1},
-	groups = {dig_immediate=3},
+	groups = {dig_immediate=3,axey=1},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 3,
 	paramtype = "light",
 
 -- CAIXA DE COLISÃO :
@@ -770,7 +778,9 @@ minetest.register_craftitem("forgotten_monsters:summon_sking", {
 minetest.register_node("forgotten_monsters:buried_bone_block", {
 	description = "Buried Bone Block",
 	tiles = {"buried_bone_block.png"}, 
-	groups = {cracky = 2}, 
+	groups = {cracky = 2,pickaxey=1},
+	_mcl_hardness = 2,
+	_mcl_blast_resistance = 2,
         drop = "forgotten_monsters:buried_bone_block",
        
 })
