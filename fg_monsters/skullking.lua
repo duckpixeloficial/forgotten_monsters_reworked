@@ -158,5 +158,5 @@ mobs:register_mob("forgotten_monsters:sking", {
 
 
 
-mobs:register_egg("forgotten_monsters:sking", "Skull King", "eggsking.png", 1)
+mobs:register_egg("forgotten_monsters:sking", "Skull King", "skull_king_egg.png", 0)
 

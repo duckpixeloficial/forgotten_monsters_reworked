@@ -182,5 +182,5 @@ mobs:register_arrow("forgotten_monsters:meselord_arrow", {
 
 
 
-mobs:register_egg("forgotten_monsters:meselord", "Mese Lord", "default_mese_block.png", 1)
+mobs:register_egg("forgotten_monsters:meselord", "Mese Lord", "mese_lord_egg.png", 0)
 --core.register_alias("meselord:meselord", "spawneggs:spectrum")

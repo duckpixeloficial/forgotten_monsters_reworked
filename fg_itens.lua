@@ -1,10 +1,13 @@
 
+local S = minetest.get_translator("forgotten_monsters")
+
+
 if minetest.get_modpath("3d_armor") then
 
 
 	-- COROA DO SKULL KINGS :
 	armor:register_armor("forgotten_monsters:helmet_skullking", {
-		description = ("Skull King crown "),
+		description = "Skull King crown ",
 		inventory_image = "forgotten_monsters_inv_helmet_skullking.png",
 		groups = {
 		armor_head=1, 
@@ -83,8 +86,8 @@ if minetest.get_modpath("3d_armor") then
 minetest.register_craft({
   output = "forgotten_monsters:helmet_bones",
   recipe = {
-    {"forgotten_monsters:bone", "forgotten_monsters:bone","forgotten_monsters:bone"},
-    {"forgotten_monsters:bone", "","forgotten_monsters:bone"},
+    {"forgotten_monsters:buried_bone", "forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
+    {"forgotten_monsters:buried_bone", "","forgotten_monsters:buried_bone"},
     {"", "",""}
   }
 })
@@ -94,18 +97,18 @@ minetest.register_craft({
 minetest.register_craft({
   output = "forgotten_monsters:chestplate_bones",
   recipe = {
-    {"forgotten_monsters:bone","","forgotten_monsters:bone"},
-    {"forgotten_monsters:bone","forgotten_monsters:bone","forgotten_monsters:bone"},
-    {"forgotten_monsters:bone","forgotten_monsters:bone","forgotten_monsters:bone"}
+    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
+    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
+    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"}
   }
 })
 
 minetest.register_craft({
   output = "forgotten_monsters:leggings_bones",
   recipe = {
-    {"forgotten_monsters:bone","forgotten_monsters:bone","forgotten_monsters:bone"},
-    {"forgotten_monsters:bone","","forgotten_monsters:bone"},
-    {"forgotten_monsters:bone","","forgotten_monsters:bone"}
+    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
+    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
+    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"}
   }
 })
 
@@ -113,8 +116,8 @@ minetest.register_craft({
 minetest.register_craft({
   output = "forgotten_monsters:boots_bones",
   recipe = {
-    {"forgotten_monsters:bone","","forgotten_monsters:bone"},
-    {"forgotten_monsters:bone","","forgotten_monsters:bone"},
+    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
+    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
     {"","",""}
   }
 })
@@ -123,9 +126,9 @@ minetest.register_craft({
 minetest.register_craft({
   output = "forgotten_monsters:shield_bones",
   recipe = {
-    {"forgotten_monsters:bone","forgotten_monsters:bone","forgotten_monsters:bone"},
-    {"forgotten_monsters:bone","forgotten_monsters:bone","forgotten_monsters:bone"},
-    {"","forgotten_monsters:bone",""}
+    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
+    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
+    {"","forgotten_monsters:buried_bone",""}
   }
 })
 
@@ -138,7 +141,7 @@ end
 -- CARNE DE GROWLER ===========================================================================================
 
 minetest.register_craftitem("forgotten_monsters:growler_meat_raw", {
-    description = "Growler Meat Raw",
+    description = S("Growler Meat Raw"),
     inventory_image = "growler_meat_raw.png",
     _rp_hunger_food = -5,
     _rp_hunger_sat = -5, 
@@ -146,7 +149,7 @@ minetest.register_craftitem("forgotten_monsters:growler_meat_raw", {
 })
 
 minetest.register_craftitem("forgotten_monsters:growler_meat", {
-    description = "Growler Meat",
+    description = S("Growler Meat"),
     inventory_image = "growler_meat.png",
     _rp_hunger_food = 5,
     _rp_hunger_sat = 5,
@@ -165,7 +168,7 @@ minetest.register_craft({
 -- FOLHA  HUNGRY : ===============================================================================================
 
 minetest.register_craftitem("forgotten_monsters:hungry_sheet", {
-    description = "Hungry Sheet",
+    description = S("Hungry Sheet"),
     inventory_image = "folha.png",
 
 
@@ -175,8 +178,9 @@ minetest.register_craftitem("forgotten_monsters:hungry_sheet", {
 --========================================== BONES TOOLS : ======================================================
 
 minetest.register_tool("forgotten_monsters:pick_bones", {
-	description = "Bones Pickaxe",
+	description = S("Bones Pickaxe"),
 	inventory_image = "bones_pick.png",
+	wield_image = "bones_pick.png",
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -197,7 +201,7 @@ minetest.register_tool("forgotten_monsters:pick_bones", {
 
 
 minetest.register_tool("forgotten_monsters:shovel_bones", {
-	description = "Bones Shovel",
+	description = S("Bones Shovel"),
 	inventory_image = "bones_shovel.png",
 	wield_image = "bones_shovel.png",
 	tool_capabilities = {
@@ -220,8 +224,9 @@ minetest.register_tool("forgotten_monsters:shovel_bones", {
 
 
 minetest.register_tool("forgotten_monsters:axe_bones", {
-	description = "Bones Axe",
+	description = S("Bones Axe"),
 	inventory_image = "bones_axe.png",
+	wield_image = "bones_axe.png",
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -242,8 +247,9 @@ minetest.register_tool("forgotten_monsters:axe_bones", {
 
 
 minetest.register_tool("forgotten_monsters:sword_bones", {
-	description = "Bones Sword",
+	description = S("Bones Sword"),
 	inventory_image = "bones_sword.png",
+	wield_image = "bones_sword.png",
 	tool_capabilities = {
 		full_punch_interval = 0.8,
 		max_drop_level=1,
@@ -268,13 +274,12 @@ minetest.register_tool("forgotten_monsters:sword_bones", {
 -- HUMMER :
 
 minetest.register_node("forgotten_monsters:hammer", {
-	description = "Skull Kings Hammer",
+	description = S("Skull Kings Hammer"),
 	drawtype = "mesh",
 	mesh = "hummer_sk.obj",
 	tiles = {"skull_king.png"} ,
 	use_texture_alpha = "clip",
-	--wield_scale = {x=2, y=2, z=2},
-	--inventory_image = "skull_king_deep.png",
+	inventory_image = "skullking_hammer_inv.png",
 	tool_capabilities = {
 		full_punch_interval = 0.5,
 		max_drop_level=1,
@@ -295,6 +300,8 @@ minetest.register_node("forgotten_monsters:hammer", {
 	
 	
 	groups = {sword = 1,pickaxe = 1,dig_immediate=3},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 5,
 	paramtype = "light",
 
 
@@ -320,13 +327,15 @@ minetest.register_node("forgotten_monsters:hammer", {
  -- == MESE LORD :
  
  minetest.register_node("forgotten_monsters:meselord_trophy", {
-	description = "Mese Lord Trophy",
+	description = S("Mese Lord Trophy"),
 	drawtype = "mesh",
 	mesh = "trofeus_fm.obj",
 	tiles = {"trufeus_meselord.png"},
 	use_texture_alpha = "clip",
 	wield_scale = {x=1, y=1, z=1},
-	groups = {dig_immediate=3},
+	groups = {dig_immediate=3,axey=1},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 3,
 	paramtype = "light",
 
 -- CAIXA DE COLISÃO :
@@ -348,13 +357,15 @@ minetest.register_node("forgotten_monsters:hammer", {
 -- === GOLEM :
 
 minetest.register_node("forgotten_monsters:golem_trophy", {
-	description = "Golem Trophy",
+	description = S("Golem Trophy"),
 	drawtype = "mesh",
 	mesh = "trofeus_fm.obj",
 	tiles = {"trufeus_golem.png"},
 	use_texture_alpha = "clip",
 	wield_scale = {x=1, y=1, z=1},
-	groups = {dig_immediate=3},
+	groups = {dig_immediate=3,axey=1},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 3,
 	paramtype = "light",
 
 -- CAIXA DE COLISÃO :
@@ -375,13 +386,15 @@ minetest.register_node("forgotten_monsters:golem_trophy", {
 -- === SKULL KING :
 
 minetest.register_node("forgotten_monsters:skullking_trophy", {
-	description = "Skull King Trophy",
+	description = S("Skull King Trophy"),
 	drawtype = "mesh",
 	mesh = "trofeus_fm.obj",
 	tiles = {"trufeus_skull_king.png"},
 	use_texture_alpha = "clip",
 	wield_scale = {x=1, y=1, z=1},
-	groups = {dig_immediate=3},
+	groups = {dig_immediate=3,axey=1},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 3,
 	paramtype = "light",
 
 -- CAIXA DE COLISÃO :
@@ -404,7 +417,7 @@ minetest.register_node("forgotten_monsters:skullking_trophy", {
 --- ======================================== ITENS : ===========================================================
 
 minetest.register_craftitem("forgotten_monsters:buried_bone", {
-    description = "Buried Bone",
+    description = S("Buried Bone"),
     inventory_image = "buried_bone.png",
  
 	
@@ -419,7 +432,7 @@ minetest.register_craft({
     type = "shapeless",
     output = "bonemeal:bonemeal",
     recipe = {
-        "forgotten_monsters:bone",
+        "forgotten_monsters:buried_bone",
         
     },
 })
@@ -433,7 +446,7 @@ minetest.register_craft({
     type = "shapeless",
     output = "mcl_bone_meal:bone_meal",
     recipe = {
-        "forgotten_monsters:bone",
+        "forgotten_monsters:buried_bone",
         
     },
 })
@@ -445,7 +458,7 @@ end
 -- Sound : https://freesound.org/people/craigglenday/sounds/517173/
 
 minetest.register_craftitem("forgotten_monsters:old_bottle", {
-    description = "Old Bottle",
+    description = S("Old Bottle"),
     inventory_image = "old_bottle.png",
  
 	
@@ -454,7 +467,7 @@ minetest.register_craftitem("forgotten_monsters:old_bottle", {
 
 
 minetest.register_craftitem("forgotten_monsters:healing", {
-    description = "Healing ",
+    description = S("Healing"),
     inventory_image = "elixi.png",
     stack_max = 1,
     groups = {vessel = 1},
@@ -501,41 +514,28 @@ minetest.register_craftitem("forgotten_monsters:healing", {
 })
 
 
--- BOOK : =======================================================================================================
-minetest.register_craftitem("forgotten_monsters:aged_bottle", {
-    description = "Aged Bottle",
-    inventory_image = "old_bottle.png",
- 
-	
-})
-
 
 -- crumpled paper ===============================================================================================
 
 minetest.register_craftitem("forgotten_monsters:crumpled_paper", {
-    description = "Crumpled Paper",
+    description = S("Crumpled Paper"),
     inventory_image = "old_bottle.png",
- 
-	
 })
 
 
 -- BOOK : ======================================================================================================= Livro
 
-local book_txt = core.colorize("#000000", [[
+local book_txt = S("Welcome to your new journey,")
+local book_txt2 = S("of adventures, explorations and battles.")
+local book_txt3 = S("Become as strong as possible, create summoning books,")
+local book_txt4 = S("and defeat the bosses.")
+local book_txt5 = S("The bosses, Golem and Mese Lord, drop useful items,")
+local book_txt6 = S("for the recipes of the books.")
+local book_txt7 = S("Have fun!")
 
-Welcome to your new journey,
-of adventures, explorations and battles.
-Become as strong as possible, create summoning books
-and defeat the bosses.
-The bosses, Golem and Mese Lord, drop useful items
-for the recipes of the books.
-
-Have fun!!!
-]])
 
 minetest.register_craftitem("forgotten_monsters:fgbook", {
-    description = "Forgotten Book",
+    description = S("Forgotten Book"),
     inventory_image = "forgotten_book.png",
     stack_max = 1,
     groups = {book = 1},
@@ -543,10 +543,12 @@ minetest.register_craftitem("forgotten_monsters:fgbook", {
     on_use = function(itemstack, user, pointed_thing, pos)
         local player_name = user:get_player_name()
         
-        local formspec_book = "size[8,9]"..
-            "label[0.5,2;"..book_txt.."!]"..
-            "background[1,2;6,4;paper.png;true]"..
-            "button_url[3,8;2,2;wiki;Wiki;https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/README.md]"
+        local formspec_book = "size[7,8]"..
+		    "style_type[label;textcolor=#0d1523]".. 
+            "label[0.2,2;"..book_txt.."\n"..book_txt2.."\n"..book_txt3.."\n"..book_txt4.."\n"..book_txt5.."\n"..book_txt6.."\n\n"..book_txt7.."]"..
+            "background[1,2;2.5,4;fm_boock_page_bg.png;true]"..
+			"style_type[button;bgcolor=#0d1523]"..
+            "button_url[2.5,6;2,2;wiki;Wiki;https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/README.md]"
       
         
         minetest.show_formspec(player_name, "forgotten_monsters:fgbook", formspec_book)
@@ -558,26 +560,19 @@ minetest.register_craftitem("forgotten_monsters:fgbook", {
 
 -- letter from the queen : ======================================================================================= Carta
 
-local letter_label = core.colorize("#000000",[[ 
+local letter_label = S("My dear,")
+local letter_label2 = S("I write to you from Ethreal, where the cold chills to the bone.")
+local letter_label3 = S("The wind howls through the endless nights, and the ice blankets the fields like a white,silent shroud.")
+local letter_label4 = S("I feel a deep longing for your arms, for your presence beside me.")
+local letter_label5 = S("I hope, with all my heart, that we will see each other again soon.") 
+local letter_label6 = S("Until then, I hold on to my memories of you as a treasure that warms me on the coldest nights.")
+local letter_label7 = S("love and longing,")
+local letter_label8 = S("Your Queen...")
 
-                                                   							My dear,
-
-	I write to you from Ethreal, where the cold chills to the bone. 
-	The wind howls through the endless nights, and the ice blankets the fields like a white,
-	silent shroud. I feel a deep longing for your arms, for your presence beside me.
-
-	I hope, with all my heart, that we will see each other again soon. 
-	Until then, I hold on to my memories of you as a treasure that warms me on the coldest nights.
-
-		                                      		 					love and longing,
-		                                          			         Your Queen.
-
-
-]])
 
 
 minetest.register_craftitem("forgotten_monsters:letter_queen", {
-    description = "Letter from the Queen",
+    description = S("Letter from the Queen"),
     inventory_image = "letter_queen.png",
     stack_max = 1,
     groups = {vessel = 1},
@@ -585,9 +580,10 @@ minetest.register_craftitem("forgotten_monsters:letter_queen", {
     on_use = function(itemstack, user, pointed_thing, pos)
         local player_name = user:get_player_name()
         
-        local formspec_letter = "size[9.2,6]"..          
-            "label[0.1,0.2;"..letter_label.."]"..
-            "background[1,2;6,4;paper.png;true]"
+        local formspec_letter = "size[10,6]"..  
+            "style_type[label;textcolor=#0d1523]"..       
+            "label[0.2,0.5;"..letter_label.."\n"..letter_label2.."\n"..letter_label3.."\n"..letter_label4.."\n"..letter_label5.."\n"..letter_label6.."\n"..letter_label7.."\n\n"..letter_label8.."]"..
+            "background[-2,-0.5;13,7;letter_bg.png;false]"
         
        
         minetest.show_formspec(player_name, "forgotten_monsters:letter", formspec_letter)
@@ -601,7 +597,7 @@ minetest.register_craftitem("forgotten_monsters:letter_queen", {
 
 --- CORAÇÃO DE MESE : =============================================================================================
 minetest.register_craftitem("forgotten_monsters:heart_of_mese", {
-    description = "Heart of Mese",
+    description = S("Heart of Mese"),
     inventory_image = "heart_of_mese.png",
  	
 })
@@ -610,7 +606,7 @@ minetest.register_craftitem("forgotten_monsters:heart_of_mese", {
 --- LIVRO DE INVOCÃO : ===========================================================================================
 
 minetest.register_craftitem("forgotten_monsters:summon_mese_lord", {
-    description = "Mese Lord's Summoning Book",
+    description = S("Mese Lord's Summoning Book"),
     inventory_image = "summon_boock_meselord.png", 
 
     on_place = function(itemstack, placer, pointed_thing)
@@ -661,7 +657,7 @@ minetest.register_craftitem("forgotten_monsters:summon_mese_lord", {
 
 
 minetest.register_craftitem("forgotten_monsters:summon_golem", {
-    description = "Golem Summoning Book",
+    description = S("Golem Summoning Book"),
     inventory_image = "summon_boock_golem.png", 
 
     on_place = function(itemstack, placer, pointed_thing)
@@ -713,7 +709,7 @@ minetest.register_craftitem("forgotten_monsters:summon_golem", {
 
 
 minetest.register_craftitem("forgotten_monsters:summon_sking", {
-    description = "Skull King Summoning Book",
+    description = S("Skull King Summoning Book"),
     inventory_image = "summon_boock_skullking.png", 
 
     on_place = function(itemstack, placer, pointed_thing)
@@ -765,13 +761,13 @@ minetest.register_craftitem("forgotten_monsters:summon_sking", {
 
 -- =========================================== BLOCOS :  ==========================================================
 
--- BLOCO DE OSSO ( INUTIL XD )
-
 minetest.register_node("forgotten_monsters:buried_bone_block", {
-	description = "Buried Bone Block",
+	description = S("Buried Bone Block"),
 	tiles = {"buried_bone_block.png"}, 
-	groups = {cracky = 2}, 
-        drop = "forgotten_monsters:buried_bone_block",
+	groups = {cracky = 2,pickaxey=1},
+	_mcl_hardness = 2,
+	_mcl_blast_resistance = 2,
+    drop = "forgotten_monsters:buried_bone_block",
        
 })
 

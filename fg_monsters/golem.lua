@@ -148,4 +148,4 @@ mobs:register_mob("forgotten_monsters:golem", {
 
 
 
-mobs:register_egg("forgotten_monsters:golem", "Golem", "egggoelm.png", 1)
+mobs:register_egg("forgotten_monsters:golem", "Golem", "golem_egg.png", 0)

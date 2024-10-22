@@ -68,10 +68,6 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 
 
 
-
-
-
-
 -- ARROW ================================================================================================
 minetest.register_craftitem("forgotten_monsters:spectrum_magic_arrow", {
 	description = "Spectrum Magic arrow",
@@ -116,7 +112,7 @@ mobs:register_arrow("forgotten_monsters:spectrum_arrow", {
 
 
 
-mobs:register_egg("forgotten_monsters:spectrum", "Spectrum", "eggspec.png", 1)
+mobs:register_egg("forgotten_monsters:spectrum", "Spectrum", "spectrum_egg.png", 0)
 --core.register_alias("spectrum:spectrum", "spawneggs:spectrum")
 
 
@@ -135,8 +131,10 @@ minetest.register_craftitem("forgotten_monsters:spectrum_orb", {
 
 minetest.register_node("forgotten_monsters:spectrum_orb_block", {
 	description = "Spectrum Orb Block",
-	groups = {cracky = 2},
-	drop = "spectrum:spectrum_orb_block",
+	groups = {cracky = 2,pickaxey=2},
+	_mcl_hardness = 1,
+	_mcl_blast_resistance = 2,
+	drop = "forgotten_monsters:spectrum_orb_block",
 	light_source = 6,
         --sounds = default.node_sound_stone_defaults(),
 	tiles = {{

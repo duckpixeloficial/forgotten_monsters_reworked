@@ -1,0 +1,44 @@
+# textdomain: forgotten_monsters
+
+Growler Meat Raw=
+Growler Meat=
+Hungry Sheet=
+Bones Pickaxe=
+Bones Shovel=
+Bones Axe=
+Bones Sword=
+Skull Kings Hammer=
+Mese Lord Trophy=
+Golem Trophy=
+Skull King Trophy=
+Buried Bone=
+Old Bottle=
+Healing=
+Crumpled Paper=
+Forgotten Book=
+Letter from the Queen=
+Heart of Mese=
+Mese Lord's Summoning Book=
+Golem Summoning Book=
+Skull King Summoning Book=
+Buried Bone Block=
+
+Welcome to your new journey,=
+of adventures, explorations and battles.=
+Become as strong as possible, create summoning books,=
+and defeat the bosses.=
+The bosses, Golem and Mese Lord, drop useful items,=
+for the recipes of the books.=
+Have fun!=
+
+
+My dear,=
+I write to you from Ethreal, where the cold chills to the bone.=
+The wind howls through the endless nights, and the ice blankets the fields like a white,silent shroud.=
+I feel a deep longing for your arms, for your presence beside me.=
+I hope, with all my heart, that we will see each other again soon.=
+Until then, I hold on to my memories of you as a treasure that warms me on the coldest nights.=
+love and longing,=
+Your Queen...=
+
+

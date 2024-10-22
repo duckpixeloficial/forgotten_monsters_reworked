@@ -87,9 +87,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "forgotten_monsters:translocation_rod",
 	recipe = {
-		{"", "spectrum:spectrum_orb", ""}, 
-		{"", "spectrum:spectrum_orb", ""}, 
-		{"", "spectrum:spectrum_orb", ""},
+		{"", "forgotten_monsters:spectrum_orb", ""}, 
+		{"", "forgotten_monsters:spectrum_orb", ""}, 
+		{"", "forgotten_monsters:spectrum_orb", ""},
 	}
 })
 
