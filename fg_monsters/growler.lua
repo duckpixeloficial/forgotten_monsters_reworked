@@ -65,7 +65,7 @@ mobs:register_egg("forgotten_monsters:growler", "Growler", "egggrowler.png", 1)
 
 -- Suporte a Hunger_ng :
 
-if minetest.get_modpath("hunger_ng") then
+if core.get_modpath("hunger_ng") then
 
 hunger_ng.add_hunger_data('forgotten_monsters:growler_meat_raw', {
 		satiates = -5.0,

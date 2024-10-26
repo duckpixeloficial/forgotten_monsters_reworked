@@ -78,22 +78,13 @@ mobs:register_mob("forgotten_monsters:meselord", {
 	},
 
 	on_spawn = function ()
-	minetest.chat_send_all ("Mese Lord has been awakened..")
+	core.chat_send_all ("Mese Lord has been awakened..")
 	end,
 	
 
 	on_die = function(self, pos) 
-
-	--[[
-		for _,players in pairs(minetest.get_objects_inside_radius(pos,64)) do
-			if players:is_player() then 
-				
-			end
-		end
-		
-		]]
 	
-		   minetest.add_particlespawner({
+	    core.add_particlespawner({
             amount = 50, 
             time = 2, 
             minpos = {x = pos.x - 2, y = pos.y, z = pos.z - 2},

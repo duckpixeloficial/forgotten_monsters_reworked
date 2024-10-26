@@ -71,20 +71,20 @@ mobs:register_mob("forgotten_monsters:golem", {
 	},
 
 	on_spawn = function ()
-	minetest.chat_send_all ("Golem Summoned ...")
+	core.chat_send_all ("Golem Summoned ...")
 	end,
 	
 	
 	
 	custom_attack = function(self, to_attack)
 	
-	 local current_time = minetest.get_us_time() -- tempo atual mas emmicro segundos
+	 local current_time = core.get_us_time() -- tempo atual mas emmicro segundos
 	 
 	  if current_time - last_attack >= 2 * (10^6)  then 
 		last_attack = current_time 
 		
 	        
-	   	for _, player in ipairs(minetest.get_connected_players()) do
+	   	for _, player in ipairs(core.get_connected_players()) do
 				     
 				     
 			local attached = self.attack:get_attach()
@@ -103,7 +103,7 @@ mobs:register_mob("forgotten_monsters:golem", {
 		        
 		    self.object:set_animation({x=140, y=180},15, 1, false)      				
 			self.attack:set_pos({x=pp.x+5,y=pp.y+3,z=pp.z})     			
-			minetest.sound_play("impact_golem", {pos = pos, gain = 0.5})
+			core.sound_play("impact_golem", {pos = pos, gain = 0.5})
 				   
 		 end
 	    end
@@ -114,14 +114,14 @@ mobs:register_mob("forgotten_monsters:golem", {
 
 	on_die = function(self, pos) 
 	--[[
-	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do 
+	for _,players in pairs(core.get_objects_inside_radius(pos,55)) do 
 			if players:is_player() then 
 				
 			end
 		end
 		]]
 
-            minetest.add_particlespawner({
+            core.add_particlespawner({
             amount = 50, 
             time = 2, 
             minpos = {x = pos.x - 2, y = pos.y, z = pos.z - 2},

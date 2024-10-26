@@ -1,4 +1,4 @@
-local path = minetest.get_modpath("forgotten_monsters")
+local path = core.get_modpath("forgotten_monsters")
 
 forgotten_monsters = {} -- enables
 

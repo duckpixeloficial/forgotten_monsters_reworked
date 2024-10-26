@@ -1,4 +1,4 @@
-forgotten_monsters.daytime = minetest.settings:get_bool("forgotten_monsters.daytime", true)
+forgotten_monsters.daytime = core.settings:get_bool("forgotten_monsters.daytime", true)
 
 local skull_spawns = {
 
@@ -34,7 +34,7 @@ if forgotten_monsters.daytime then -- Opção para não surgir de dia ..
 end
 
 
-if not minetest.get_modpath("mcl_core") then -- Algumas caveiras não deverar surgir no mcl , arqueira e normal
+if not core.get_modpath("mcl_core") then -- Algumas caveiras não deverar surgir no mcl , arqueira e normal
 
 mobs:spawn({
 	name = "forgotten_monsters:sarchers",

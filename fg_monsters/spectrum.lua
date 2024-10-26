@@ -69,7 +69,7 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 
 
 -- ARROW ================================================================================================
-minetest.register_craftitem("forgotten_monsters:spectrum_magic_arrow", {
+core.register_craftitem("forgotten_monsters:spectrum_magic_arrow", {
 	description = "Spectrum Magic arrow",
 	inventory_image = "pectrum_arrow.png",
 	groups = {not_in_creative_inventory = 1}
@@ -120,7 +120,7 @@ mobs:register_egg("forgotten_monsters:spectrum", "Spectrum", "spectrum_egg.png",
 
 -- SPECTRUM ORB
 
-minetest.register_craftitem("forgotten_monsters:spectrum_orb", {
+core.register_craftitem("forgotten_monsters:spectrum_orb", {
     description = "Spectrum Orb",
     inventory_image = "spectrum_orb.png",
     light_source = 3,
@@ -129,7 +129,7 @@ minetest.register_craftitem("forgotten_monsters:spectrum_orb", {
 
 -- SPECTRUM ORB BLOCK :
 
-minetest.register_node("forgotten_monsters:spectrum_orb_block", {
+core.register_node("forgotten_monsters:spectrum_orb_block", {
 	description = "Spectrum Orb Block",
 	groups = {cracky = 2,pickaxey=2},
 	_mcl_hardness = 1,
@@ -146,7 +146,7 @@ minetest.register_node("forgotten_monsters:spectrum_orb_block", {
 })
 
 
-minetest.register_tool("forgotten_monsters:translocation_rod", {
+core.register_tool("forgotten_monsters:translocation_rod", {
     description = "Translocation Rod",
     inventory_image = "translocation_rod.png",
     range = 30,
@@ -167,7 +167,7 @@ minetest.register_tool("forgotten_monsters:translocation_rod", {
 	        if pointed_thing.type == "node" then
 	            local pos = pointed_thing.under
 	            local player_pos = user:get_pos()
-	            local node_name = minetest.get_node(pos).name
+	            local node_name = core.get_node(pos).name
 
 	          
 	            user:set_pos({x = pos.x, y = pos.y + 1, z = pos.z})
@@ -175,7 +175,7 @@ minetest.register_tool("forgotten_monsters:translocation_rod", {
 	            -- Paticulas no local , efeito hehe !!!
 	            -----------------------------------------------------------------------------------------------
 	            for i = 1,5 do
-           		minetest.add_particle({
+           		core.add_particle({
                 pos = {x = pos.x + math.random(-0.5, 0.5), y = pos.y + 1, z = pos.z + math.random(-0.5, 0.5)},
                 velocity = {x = math.random(-1, 1), y = math.random(1, 3), z = math.random(-1, 1)},
                 acceleration = {x = 0, y = -2, z = 0},
@@ -199,9 +199,9 @@ minetest.register_tool("forgotten_monsters:translocation_rod", {
 
 
 -- COMPATIBILIDADE COM : Mirror of Returning (BY : Wuzzy )
-if minetest.get_modpath("returnmirror") then
+if core.get_modpath("returnmirror") then
 
-minetest.register_craft({
+core.register_craft({
     output = "returnmirror:mirror_inactive ",
     recipe = {
 		{"default:gold_ingot", "spectrum:spectrum_orb", "default:gold_ingot"},

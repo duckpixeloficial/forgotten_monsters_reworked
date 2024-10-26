@@ -1,8 +1,8 @@
 
-local S = minetest.get_translator("forgotten_monsters")
+local S = core.get_translator("forgotten_monsters")
 
 
-if minetest.get_modpath("3d_armor") then
+if core.get_modpath("3d_armor") then
 
 
 	-- COROA DO SKULL KINGS :
@@ -83,7 +83,7 @@ if minetest.get_modpath("3d_armor") then
 
 
 
-minetest.register_craft({
+core.register_craft({
   output = "forgotten_monsters:helmet_bones",
   recipe = {
     {"forgotten_monsters:buried_bone", "forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
@@ -94,7 +94,7 @@ minetest.register_craft({
 
 
 
-minetest.register_craft({
+core.register_craft({
   output = "forgotten_monsters:chestplate_bones",
   recipe = {
     {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
@@ -103,7 +103,7 @@ minetest.register_craft({
   }
 })
 
-minetest.register_craft({
+core.register_craft({
   output = "forgotten_monsters:leggings_bones",
   recipe = {
     {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
@@ -113,7 +113,7 @@ minetest.register_craft({
 })
 
 
-minetest.register_craft({
+core.register_craft({
   output = "forgotten_monsters:boots_bones",
   recipe = {
     {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
@@ -123,7 +123,7 @@ minetest.register_craft({
 })
 
 
-minetest.register_craft({
+core.register_craft({
   output = "forgotten_monsters:shield_bones",
   recipe = {
     {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
@@ -140,24 +140,24 @@ end
 
 -- CARNE DE GROWLER ===========================================================================================
 
-minetest.register_craftitem("forgotten_monsters:growler_meat_raw", {
+core.register_craftitem("forgotten_monsters:growler_meat_raw", {
     description = S("Growler Meat Raw"),
     inventory_image = "growler_meat_raw.png",
     _rp_hunger_food = -5,
     _rp_hunger_sat = -5, 
-    on_use = minetest.item_eat(-5),
+    on_use = core.item_eat(-5),
 })
 
-minetest.register_craftitem("forgotten_monsters:growler_meat", {
+core.register_craftitem("forgotten_monsters:growler_meat", {
     description = S("Growler Meat"),
     inventory_image = "growler_meat.png",
     _rp_hunger_food = 5,
     _rp_hunger_sat = 5,
-    on_use = minetest.item_eat(5),
+    on_use = core.item_eat(5),
 })
 
 
-minetest.register_craft({
+core.register_craft({
 	output = "forgotten_monsters:growler_meat",
 	type = "cooking",
 	recipe = "forgotten_monsters:growler_meat_raw",
@@ -167,7 +167,7 @@ minetest.register_craft({
 
 -- FOLHA  HUNGRY : ===============================================================================================
 
-minetest.register_craftitem("forgotten_monsters:hungry_sheet", {
+core.register_craftitem("forgotten_monsters:hungry_sheet", {
     description = S("Hungry Sheet"),
     inventory_image = "folha.png",
 
@@ -177,7 +177,7 @@ minetest.register_craftitem("forgotten_monsters:hungry_sheet", {
 
 --========================================== BONES TOOLS : ======================================================
 
-minetest.register_tool("forgotten_monsters:pick_bones", {
+core.register_tool("forgotten_monsters:pick_bones", {
 	description = S("Bones Pickaxe"),
 	inventory_image = "bones_pick.png",
 	wield_image = "bones_pick.png",
@@ -200,7 +200,7 @@ minetest.register_tool("forgotten_monsters:pick_bones", {
 })
 
 
-minetest.register_tool("forgotten_monsters:shovel_bones", {
+core.register_tool("forgotten_monsters:shovel_bones", {
 	description = S("Bones Shovel"),
 	inventory_image = "bones_shovel.png",
 	wield_image = "bones_shovel.png",
@@ -223,7 +223,7 @@ minetest.register_tool("forgotten_monsters:shovel_bones", {
 })
 
 
-minetest.register_tool("forgotten_monsters:axe_bones", {
+core.register_tool("forgotten_monsters:axe_bones", {
 	description = S("Bones Axe"),
 	inventory_image = "bones_axe.png",
 	wield_image = "bones_axe.png",
@@ -246,7 +246,7 @@ minetest.register_tool("forgotten_monsters:axe_bones", {
 })
 
 
-minetest.register_tool("forgotten_monsters:sword_bones", {
+core.register_tool("forgotten_monsters:sword_bones", {
 	description = S("Bones Sword"),
 	inventory_image = "bones_sword.png",
 	wield_image = "bones_sword.png",
@@ -273,7 +273,7 @@ minetest.register_tool("forgotten_monsters:sword_bones", {
 
 -- HUMMER :
 
-minetest.register_node("forgotten_monsters:hammer", {
+core.register_node("forgotten_monsters:hammer", {
 	description = S("Skull Kings Hammer"),
 	drawtype = "mesh",
 	mesh = "hummer_sk.obj",
@@ -326,7 +326,7 @@ minetest.register_node("forgotten_monsters:hammer", {
  
  -- == MESE LORD :
  
- minetest.register_node("forgotten_monsters:meselord_trophy", {
+ core.register_node("forgotten_monsters:meselord_trophy", {
 	description = S("Mese Lord Trophy"),
 	drawtype = "mesh",
 	mesh = "trofeus_fm.obj",
@@ -356,7 +356,7 @@ minetest.register_node("forgotten_monsters:hammer", {
 
 -- === GOLEM :
 
-minetest.register_node("forgotten_monsters:golem_trophy", {
+core.register_node("forgotten_monsters:golem_trophy", {
 	description = S("Golem Trophy"),
 	drawtype = "mesh",
 	mesh = "trofeus_fm.obj",
@@ -385,7 +385,7 @@ minetest.register_node("forgotten_monsters:golem_trophy", {
 
 -- === SKULL KING :
 
-minetest.register_node("forgotten_monsters:skullking_trophy", {
+core.register_node("forgotten_monsters:skullking_trophy", {
 	description = S("Skull King Trophy"),
 	drawtype = "mesh",
 	mesh = "trofeus_fm.obj",
@@ -416,7 +416,7 @@ minetest.register_node("forgotten_monsters:skullking_trophy", {
 
 --- ======================================== ITENS : ===========================================================
 
-minetest.register_craftitem("forgotten_monsters:buried_bone", {
+core.register_craftitem("forgotten_monsters:buried_bone", {
     description = S("Buried Bone"),
     inventory_image = "buried_bone.png",
  
@@ -426,9 +426,9 @@ minetest.register_craftitem("forgotten_monsters:buried_bone", {
 
 --===================================== COMPATIBILIDADE COM BONEMEAL : ===========================================
 
-if minetest.get_modpath("bonemeal") then
+if core.get_modpath("bonemeal") then
 
-minetest.register_craft({
+core.register_craft({
     type = "shapeless",
     output = "bonemeal:bonemeal",
     recipe = {
@@ -440,9 +440,9 @@ minetest.register_craft({
 end
 
 
-if minetest.get_modpath("mcl_bone_meal") then
+if core.get_modpath("mcl_bone_meal") then
 
-minetest.register_craft({
+core.register_craft({
     type = "shapeless",
     output = "mcl_bone_meal:bone_meal",
     recipe = {
@@ -457,7 +457,7 @@ end
 -- ================================================ CURA : ======================================================
 -- Sound : https://freesound.org/people/craigglenday/sounds/517173/
 
-minetest.register_craftitem("forgotten_monsters:old_bottle", {
+core.register_craftitem("forgotten_monsters:old_bottle", {
     description = S("Old Bottle"),
     inventory_image = "old_bottle.png",
  
@@ -466,7 +466,7 @@ minetest.register_craftitem("forgotten_monsters:old_bottle", {
 
 
 
-minetest.register_craftitem("forgotten_monsters:healing", {
+core.register_craftitem("forgotten_monsters:healing", {
     description = S("Healing"),
     inventory_image = "elixi.png",
     stack_max = 1,
@@ -480,7 +480,7 @@ minetest.register_craftitem("forgotten_monsters:healing", {
 			--itemstack:take_item( )
 		end
 		
-		minetest.sound_play("bebendo", {
+		core.sound_play("bebendo", {
 			pos = pos,
 			gain = 1.0,
 			max_hear_distance = 5,
@@ -490,7 +490,7 @@ minetest.register_craftitem("forgotten_monsters:healing", {
 		
 		for i=1,30 do
 		
-	        minetest.add_particle({
+	        core.add_particle({
 		pos = pos,
 		acceleration = 0,
                 velocity = {x =math.random(-3,3),y=math.random(-3,3),z=math.random(-3,3)},
@@ -517,7 +517,7 @@ minetest.register_craftitem("forgotten_monsters:healing", {
 
 -- crumpled paper ===============================================================================================
 
-minetest.register_craftitem("forgotten_monsters:crumpled_paper", {
+core.register_craftitem("forgotten_monsters:crumpled_paper", {
     description = S("Crumpled Paper"),
     inventory_image = "old_bottle.png",
 })
@@ -534,7 +534,7 @@ local book_txt6 = S("for the recipes of the books.")
 local book_txt7 = S("Have fun!")
 
 
-minetest.register_craftitem("forgotten_monsters:fgbook", {
+core.register_craftitem("forgotten_monsters:fgbook", {
     description = S("Forgotten Book"),
     inventory_image = "forgotten_book.png",
     stack_max = 1,
@@ -544,14 +544,14 @@ minetest.register_craftitem("forgotten_monsters:fgbook", {
         local player_name = user:get_player_name()
         
         local formspec_book = "size[7,8]"..
-		    "style_type[label;textcolor=#0d1523]".. 
+	    "style_type[label;textcolor=#0d1523]".. 
             "label[0.2,2;"..book_txt.."\n"..book_txt2.."\n"..book_txt3.."\n"..book_txt4.."\n"..book_txt5.."\n"..book_txt6.."\n\n"..book_txt7.."]"..
             "background[1,2;2.5,4;fm_boock_page_bg.png;true]"..
-			"style_type[button;bgcolor=#0d1523]"..
+	    "style_type[button;bgcolor=#0d1523]"..
             "button_url[2.5,6;2,2;wiki;Wiki;https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/README.md]"
       
         
-        minetest.show_formspec(player_name, "forgotten_monsters:fgbook", formspec_book)
+        core.show_formspec(player_name, "forgotten_monsters:fgbook", formspec_book)
         return itemstack
     end
 })
@@ -571,7 +571,7 @@ local letter_label8 = S("Your Queen...")
 
 
 
-minetest.register_craftitem("forgotten_monsters:letter_queen", {
+core.register_craftitem("forgotten_monsters:letter_queen", {
     description = S("Letter from the Queen"),
     inventory_image = "letter_queen.png",
     stack_max = 1,
@@ -586,7 +586,7 @@ minetest.register_craftitem("forgotten_monsters:letter_queen", {
             "background[-2,-0.5;13,7;letter_bg.png;false]"
         
        
-        minetest.show_formspec(player_name, "forgotten_monsters:letter", formspec_letter)
+        core.show_formspec(player_name, "forgotten_monsters:letter", formspec_letter)
         --return itemstack
     end
 })
@@ -596,7 +596,7 @@ minetest.register_craftitem("forgotten_monsters:letter_queen", {
 
 
 --- CORAÇÃO DE MESE : =============================================================================================
-minetest.register_craftitem("forgotten_monsters:heart_of_mese", {
+core.register_craftitem("forgotten_monsters:heart_of_mese", {
     description = S("Heart of Mese"),
     inventory_image = "heart_of_mese.png",
  	
@@ -605,7 +605,7 @@ minetest.register_craftitem("forgotten_monsters:heart_of_mese", {
 
 --- LIVRO DE INVOCÃO : ===========================================================================================
 
-minetest.register_craftitem("forgotten_monsters:summon_mese_lord", {
+core.register_craftitem("forgotten_monsters:summon_mese_lord", {
     description = S("Mese Lord's Summoning Book"),
     inventory_image = "summon_boock_meselord.png", 
 
@@ -616,7 +616,7 @@ minetest.register_craftitem("forgotten_monsters:summon_mese_lord", {
     	    
     	     local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
     	      
-             minetest.add_entity(summon_pos, "forgotten_monsters:meselord")
+             core.add_entity(summon_pos, "forgotten_monsters:meselord")
              
                -- PARTICULAS
                for px = 1,3 do
@@ -624,7 +624,7 @@ minetest.register_craftitem("forgotten_monsters:summon_mese_lord", {
                  for pz = 1,3 do
                  
                  
-		minetest.add_particlespawner({
+		core.add_particlespawner({
 		    amount = 1,
 		    time = 0.5,
 		    minpos = {x = pos.x + px, y = pos.y + py, z = pos.z + pz},
@@ -656,7 +656,7 @@ minetest.register_craftitem("forgotten_monsters:summon_mese_lord", {
 
 
 
-minetest.register_craftitem("forgotten_monsters:summon_golem", {
+core.register_craftitem("forgotten_monsters:summon_golem", {
     description = S("Golem Summoning Book"),
     inventory_image = "summon_boock_golem.png", 
 
@@ -667,7 +667,7 @@ minetest.register_craftitem("forgotten_monsters:summon_golem", {
     
              local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
         
-             minetest.add_entity(summon_pos, "forgotten_monsters:golem")
+             core.add_entity(summon_pos, "forgotten_monsters:golem")
              
                -- PARTICULAS
 		
@@ -676,7 +676,7 @@ minetest.register_craftitem("forgotten_monsters:summon_golem", {
                  for pz = 1,3 do
                  
                  
-		minetest.add_particlespawner({
+		core.add_particlespawner({
 		    amount = 1,
 		    time = 0.5,
 		    minpos = {x = pos.x + px, y = pos.y + py, z = pos.z + pz},
@@ -708,7 +708,7 @@ minetest.register_craftitem("forgotten_monsters:summon_golem", {
 
 
 
-minetest.register_craftitem("forgotten_monsters:summon_sking", {
+core.register_craftitem("forgotten_monsters:summon_sking", {
     description = S("Skull King Summoning Book"),
     inventory_image = "summon_boock_skullking.png", 
 
@@ -719,7 +719,7 @@ minetest.register_craftitem("forgotten_monsters:summon_sking", {
     
              local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
         
-             minetest.add_entity(summon_pos, "forgotten_monsters:sking")
+             core.add_entity(summon_pos, "forgotten_monsters:sking")
              
                  -- PARTICULAS
 		
@@ -728,7 +728,7 @@ minetest.register_craftitem("forgotten_monsters:summon_sking", {
                  for pz = 1,3 do
                  
                  
-		minetest.add_particlespawner({
+		core.add_particlespawner({
 		    amount = 1,
 		    time = 0.5,
 		    minpos = {x = pos.x + px, y = pos.y + py, z = pos.z + pz},
@@ -761,7 +761,7 @@ minetest.register_craftitem("forgotten_monsters:summon_sking", {
 
 -- =========================================== BLOCOS :  ==========================================================
 
-minetest.register_node("forgotten_monsters:buried_bone_block", {
+core.register_node("forgotten_monsters:buried_bone_block", {
 	description = S("Buried Bone Block"),
 	tiles = {"buried_bone_block.png"}, 
 	groups = {cracky = 2,pickaxey=1},

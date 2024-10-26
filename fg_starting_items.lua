@@ -3,7 +3,7 @@
           
 
 
-minetest.register_on_newplayer(function(player)
+core.register_on_newplayer(function(player)
 	 
 	 
 	 local player_name = player:get_player_name()
@@ -17,7 +17,7 @@ end)
 
 
 --[[
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
     znews_formspec(player)
 end)
 ]]

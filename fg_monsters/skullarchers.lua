@@ -72,7 +72,7 @@ mobs:register_mob("forgotten_monsters:sarchers", {
 
 
 -- ARROW ================================================================================================
-minetest.register_craftitem("forgotten_monsters:skull_arrow", {
+core.register_craftitem("forgotten_monsters:skull_arrow", {
 	description = "Skull Archers Arrow",
 	inventory_image = "arrow_stone.png",
 	groups = {not_in_creative_inventory = 1}
@@ -97,7 +97,7 @@ mobs:register_arrow("forgotten_monsters:sarchers_arrow", {  --arrow
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 3},
 
-			minetest.sound_play("arrow_hit_1", {
+			core.sound_play("arrow_hit_1", {
 			pos = pos,
 			gain = 1.0,
 			max_hear_distance = 5,
@@ -111,7 +111,7 @@ mobs:register_arrow("forgotten_monsters:sarchers_arrow", {  --arrow
 		player:punch(self.object,1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 3},
-			minetest.sound_play("arrow_hit_1", {
+			core.sound_play("arrow_hit_1", {
 			pos = pos,
 			gain = 1.0,
 			max_hear_distance = 5,

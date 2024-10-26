@@ -59,13 +59,13 @@ mobs:register_mob("forgotten_monsters:hungry", {
 
 	custom_attack = function(self, to_attack)
 	
-		local current_time = minetest.get_us_time() -- tempo atual mas emmicro segundos
+		local current_time = core.get_us_time() -- tempo atual mas emmicro segundos
 		
 		 if current_time - last_attack >= 3 * (10^6)  then 
 		   last_attack = current_time 
 		   
 			   
-			  for _, player in ipairs(minetest.get_connected_players()) do
+			  for _, player in ipairs(core.get_connected_players()) do
 						
 						
 			   local attached = self.attack:get_attach()
@@ -83,7 +83,7 @@ mobs:register_mob("forgotten_monsters:hungry", {
 								   
 				   
 			   self.object:set_animation({x=100, y=130},65, 1, false)      				    
-			   minetest.sound_play("hungry_attack", {pos = pos, gain = 0.5})
+			   core.sound_play("hungry_attack", {pos = pos, gain = 0.5})
    
 					  
 			end
