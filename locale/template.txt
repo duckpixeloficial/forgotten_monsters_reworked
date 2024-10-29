@@ -1,5 +1,10 @@
 # textdomain: forgotten_monsters
-
+Skull King crown=
+Bones Helmet=
+Bones Chestplate=
+Bones Leggings=
+Bones Boots=
+Bones Shield=
 Growler Meat Raw=
 Growler Meat=
 Hungry Sheet=
@@ -15,14 +20,6 @@ Buried Bone=
 Old Bottle=
 Healing=
 Crumpled Paper=
-Forgotten Book=
-Letter from the Queen=
-Heart of Mese=
-Mese Lord's Summoning Book=
-Golem Summoning Book=
-Skull King Summoning Book=
-Buried Bone Block=
-
 Welcome to your new journey,=
 of adventures, explorations and battles.=
 Become as strong as possible, create summoning books,=
@@ -30,8 +27,7 @@ and defeat the bosses.=
 The bosses, Golem and Mese Lord, drop useful items,=
 for the recipes of the books.=
 Have fun!=
-
-
+Forgotten Book=
 My dear,=
 I write to you from Ethreal, where the cold chills to the bone.=
 The wind howls through the endless nights, and the ice blankets the fields like a white,silent shroud.=
@@ -40,5 +36,9 @@ I hope, with all my heart, that we will see each other again soon.=
 Until then, I hold on to my memories of you as a treasure that warms me on the coldest nights.=
 love and longing,=
 Your Queen...=
-
-
+Letter from the Queen=
+Heart of Mese=
+Mese Lord's Summoning Book=
+Golem Summoning Book=
+Skull King Summoning Book=
+Buried Bone Block=
