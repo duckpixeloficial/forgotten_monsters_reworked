@@ -2,9 +2,6 @@
 -- Bones : https://freesound.org/people/spookymodem/sounds/202091/
 -- Axe : https://freesound.org/people/Wdfourtee/sounds/192055/
 
-
----- SKULL SWORD  ------------------------------------------------------------------------------------------------------
-
 mobs:register_mob("forgotten_monsters:skull_berserker", {
 	--nametag = "Skull Berserker" ,
 	type = "monster",
@@ -12,24 +9,24 @@ mobs:register_mob("forgotten_monsters:skull_berserker", {
 	attack_type = "dogfight",
 	pathfinding = true,
 	reach = 3,
-	damage = 4,
-	hp_min = 15,
-	hp_max = 15,
+	damage = 3,
+	hp_min = 30,
+	hp_max = 30,
 	armor = 100,
 	collisionbox = {-0.4, -0, -0.4, 0.4, 1.8, 0.4},
 	visual = "mesh",
 	visual_size = {x = 9, y = 9},
 	mesh = "skull_sword_anim.b3d",
-	--rotate = 180,
 	textures = {
 		{"skull_berserker.png"},
 	},
-	--glow = 4,
 	blood_texture = "buried_bone.png",
 	makes_footstep_sound = true,
 	sounds = {
-		attack = "axe_sound",
+		attack = "sword_skull",
 		death = "falling_bones",
+		random = "skeleton_random.2",
+		
 	},
     -----------------------
 	pathfinding = 1,
@@ -45,9 +42,8 @@ mobs:register_mob("forgotten_monsters:skull_berserker", {
 	view_range = 25,
     -------------------------
 	drops = {
-		{name = "forgotten_monsters:buried_bone", chance = 1, min = 1, max = 2},
-	        {name = "forgotten_monsters:axe_bones", chance = 5, min = 1, max = 1},
-		
+		{name = "forgotten_monsters:buried_bone", chance = 5, min = 1, max = 2},
+	        {name = "forgotten_monsters:axe_bones", chance = 10, min = 1, max = 1},		
 	},
 	water_damage = 0,
 	lava_damage = 1,
@@ -61,14 +57,7 @@ mobs:register_mob("forgotten_monsters:skull_berserker", {
 		walk_end = 70,
 		run_start = 80,
 		run_end = 90,
-		--punch_start = 80,
-		--punch_end = 90,
 	},
 })
 
-
-
-
-
 mobs:register_egg("forgotten_monsters:skull_berserker", "Skull Berserker", "skull_berserker_egg.png", 1)
-

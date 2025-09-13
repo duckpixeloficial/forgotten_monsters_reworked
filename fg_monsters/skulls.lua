@@ -2,7 +2,6 @@
 -- Bones : https://freesound.org/people/spookymodem/sounds/202091/
 
 -- NORMAL SKULL
-
 mobs:register_mob("forgotten_monsters:skull", {
 	--nametag = "skull" ,
 	type = "monster",
@@ -18,7 +17,6 @@ mobs:register_mob("forgotten_monsters:skull", {
 	visual = "mesh",
 	visual_size = {x = 9, y = 9},
 	mesh = "skull_normal.b3d",
-	--rotate = 180,
 	textures = {
 		{"skull.png"},
 	},
@@ -42,9 +40,7 @@ mobs:register_mob("forgotten_monsters:skull", {
 	view_range = 25,
 	-------------------------
 	drops = {
-		{name = "forgotten_monsters:buried_bone", chance = 1, min = 1, max = 1},
-
-
+		{name = "forgotten_monsters:buried_bone", chance = 10, min = 1, max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 1,
@@ -64,11 +60,6 @@ mobs:register_mob("forgotten_monsters:skull", {
 
 	
 })
-
-
-
-
-
 
 mobs:register_egg("forgotten_monsters:skull", "Skull", "eggsskull.png", 1)
 

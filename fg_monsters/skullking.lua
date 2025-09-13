@@ -1,10 +1,8 @@
 ---- SKULL KING  ( BOSS FINAL ) ------------------------------------------------------------------------------------------------------
 -- sound attack : https://freesound.org/people/TomRonaldmusic/sounds/607201/
 -- sound hummer : https://freesound.org/people/TomRonaldmusic/sounds/607201/
-
- local last_attack = 0
+local last_attack = 0
  
-
 mobs:register_mob("forgotten_monsters:sking", {
 	--nametag = "Skull King Boss" ,
 	type = "monster",
@@ -12,19 +10,17 @@ mobs:register_mob("forgotten_monsters:sking", {
 	attack_type = "dogfight",
 	pathfinding = true,
 	reach = 4,
-	damage = 15,
-	hp_min = 700,
-	hp_max = 700,
+	damage = 12,
+	hp_min = 1000,
+	hp_max = 1000,
 	armor = 80,
 	visual = "mesh",
 	visual_size = {x = 12, y = 12},
 	mesh = "skull_king.b3d",
 	collisionbox = {-0.4, -0, -0.4, 0.4, 1.8, 0.4},
-	--rotate = 180,
 	textures = {
 		{"skull_king.png"},
 	},
-	--glow = 3,
 	blood_texture = "buried_bone.png",
 	makes_footstep_sound = true,
 	sounds = {
@@ -45,12 +41,13 @@ mobs:register_mob("forgotten_monsters:sking", {
 	jump_height = 3,
 	floats = 0,
 	view_range = 35,
+	knock_back = false,
+	die_rotate = true,
 	-------------------------
 	drops = {
-		--{name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1},
-		{name = "forgotten_monsters:hammer", chance = 1, min = 1, max = 1},
-		{name = "forgotten_monsters:skullking_trophy", chance = 1, min = 1, max = 1},
-		--{name = "", chance = 3, min = 1, max = 1},
+		{name = "forgotten_monsters:hammer", chance = 10, min = 1, max = 1},
+		--{name = "forgotten_monsters:skullking_trophy", chance = 1, min = 1, max = 1},
+		{name = "forgotten_monsters:helmet_skullking", chance = 1, min = 1, max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 1,
@@ -67,96 +64,60 @@ mobs:register_mob("forgotten_monsters:sking", {
 		punch_start = 100,
 		punch_end =120,
 		punch_speed = 15,
-
-
 	},
-
-       
-        --[[
-	on_spawn = function ()
-	--core.chat_send_all ("The Skull King is reborn...")
+	
+	after_activate = function(self, staticdata, def, dtime)
+	  if core.get_modpath("mcl_armor") then
+	   self.damage = 4
+	   --core.log(tostring( self.damage))
+         end
 	end,
-	]]
 	
-	
-	custom_attack = function(self, to_attack)
-	
-	 local current_time = core.get_us_time() -- tempo atual mas emmicro segundos
-	 
+	do_custom = function(self, dtime)
+	  local health = self.health / 0.5 
+	  fg_hud_boss(self,dtime,"Skull_King",health,"Skull King","boss_bar1.png",1,25)  
+	end,
+		
+	custom_attack = function(self, to_attack)	
+	 local current_time = core.get_us_time()	 
 	  if current_time - last_attack >= 4 * (10^6)  then 
 		last_attack = current_time 
-		
-	        
+			        
 	   	for _, player in ipairs(core.get_connected_players()) do
-				     
-				     
+				     				     
 			local attached = self.attack:get_attach()
-			local pp = player:get_pos()
+			local pp = self.attack:get_pos()
+			local pos_sk = self.object:get_pos()
+			local p_impact = math.random(0,5)
 
 			if attached then
 			self.attack = attached
 			end
-			
-
-			self.attack:punch(self.object, 5.0, {
-		        full_punch_interval=5.0,
-		        damage_groups={fleshy=15}, 
-		        })
-		                		
+	    
+		        self.attack:punch(self.object, 1.0, {
+			full_punch_interval = 1.0,
+			damage_groups = {fleshy = self.damage}
+			}, nil)
+ 
+		        part_sking (pos_sk)   		
 		        
-		    self.object:set_animation({x=100, y=120},15, 1, false)      				
-			self.attack:set_pos({x=pp.x+5,y=pp.y+2,z=pp.z})     
-			core.sound_play("air_impact", {pos = pos, gain = 0.5})
+		        self.object:set_animation({x=100, y=120},15, 1, false)      				
+			self.attack:set_pos({x=pp.x,y=pp.y+p_impact,z=pp.z})     
+			core.sound_play("air_impact", {pos = pos_sk, gain = 0.5})
 
 			core.after(1 , function ()
-				self.object:set_animation({x=20, y=60},15, 1, false)   
-                
-				local pos =  self.object:get_pos()
-			
+				self.object:set_animation({x=20, y=60},15, 1, false)   			
 			end)
 				   
 		 end
 	    end
 	
 	end,
-	
-	
-	on_die = function(self, pos) 
-	
-		--[[
-			for _,players in pairs(core.get_objects_inside_radius(pos,40)) do 
-					if players:is_player() then -- SE PLAYER
-						
-					end
-				end
-
-		]]
 		
-	
-
-	    core.add_particlespawner({
-            amount = 50, 
-            time = 1, 
-            minpos = {x = pos.x - 2, y = pos.y, z = pos.z - 2},
-            maxpos = {x = pos.x + 2, y = pos.y + 2, z = pos.z + 2},
-            minvel = {x = -3, y = -3, z = -3}, 
-            maxvel = {x = 3, y = 3, z = 3}, 
-            minacc = {x = 0, y = -1, z = 0},
-            maxacc = {x = 0, y = -1, z = 0}, 
-            minexptime = 3, 
-            maxexptime = 6, 
-            minsize = 2,
-            maxsize = 6,
-            collisiondetection = false,
-            vertical = false, 
-            texture = "part_spawn_king.png", 
-            glow = 7, 
-        })
-
+	on_die = function(self, pos) 
+	    remover_fg_hud_boss(self,dtime)
+	    part_summon (pos)
 	end
 })
 
-
-
 mobs:register_egg("forgotten_monsters:sking", "Skull King", "skull_king_egg.png", 0)
-

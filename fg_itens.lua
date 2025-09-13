@@ -1,143 +1,5 @@
 
 local S = core.get_translator("forgotten_monsters")
-
-
-if core.get_modpath("3d_armor") then
-
-
-	-- COROA DO SKULL KINGS :
-	armor:register_armor("forgotten_monsters:helmet_skullking", {
-		description = S("Skull King crown"),
-		inventory_image = "forgotten_monsters_inv_helmet_skullking.png",
-		groups = {
-		armor_head=1, 
-		armor_heal=14, 
-		armor_use=200,
-		physics_speed=1, 
-		--armor_fire=1,
-		
-		},
-		
-		armor_groups = {fleshy=17},
-		damage_groups = {cracky=2, snappy=1, level=4},
-    })
-
-
-    -- BONES AMOR :
-
-    armor:register_armor("forgotten_monsters:helmet_bones", {
-	        description =S("Bones Helmet"),
-		inventory_image = "forgotten_monsters_inv_helmet_bones.png",
-		groups = {armor_head=1, armor_heal=0, armor_use=700,
-			physics_speed=-0.01, physics_gravity=0.01},
-		armor_groups = {fleshy=10},
-		damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	})
-
-
-    armor:register_armor("forgotten_monsters:chestplate_bones", {
-	        description = S("Bones Chestplate"),
-		inventory_image = "forgotten_monsters_inv_chestplate_bones.png",
-		groups = {armor_torso=1, armor_heal=0, armor_use=700,
-			physics_speed=-0.04, physics_gravity=0.04},
-		armor_groups = {fleshy=15},
-		damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	})
-
-
-	armor:register_armor("forgotten_monsters:leggings_bones", {
-		description = S("Bones Leggings"),
-		inventory_image = "forgotten_monsters_inv_leggings_bones.png",
-		groups = {armor_legs=1, armor_heal=0, armor_use=700,
-			physics_speed=-0.03, physics_gravity=0.03},
-		armor_groups = {fleshy=15},
-		damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	})
-
-
-	armor:register_armor("forgotten_monsters:boots_bones", {
-		description = S("Bones Boots"),
-		inventory_image = "forgotten_monsters_inv_boots_bones.png",
-		groups = {armor_feet=1, armor_heal=0, armor_use=700,
-			physics_speed=-0.01, physics_gravity=0.01},
-		armor_groups = {fleshy=10},
-		damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	})
-
-
-
-	armor:register_armor("forgotten_monsters:shield_bones", {
-		description = S("Bones Shield"),
-		inventory_image = "forgotten_monsters_inv_shield_bones.png",
-		groups = {armor_shield=1, armor_heal=0, armor_use=600,
-			physics_speed=-0.03, physics_gravity=0.03},
-		armor_groups = {fleshy=10},
-		damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-		reciprocate_damage = true,
-		
-	})
-
-
-	
-
-
-
-
-core.register_craft({
-  output = "forgotten_monsters:helmet_bones",
-  recipe = {
-    {"forgotten_monsters:buried_bone", "forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
-    {"forgotten_monsters:buried_bone", "","forgotten_monsters:buried_bone"},
-    {"", "",""}
-  }
-})
-
-
-
-core.register_craft({
-  output = "forgotten_monsters:chestplate_bones",
-  recipe = {
-    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
-    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
-    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"}
-  }
-})
-
-core.register_craft({
-  output = "forgotten_monsters:leggings_bones",
-  recipe = {
-    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
-    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
-    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"}
-  }
-})
-
-
-core.register_craft({
-  output = "forgotten_monsters:boots_bones",
-  recipe = {
-    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
-    {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
-    {"","",""}
-  }
-})
-
-
-core.register_craft({
-  output = "forgotten_monsters:shield_bones",
-  recipe = {
-    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
-    {"forgotten_monsters:buried_bone","forgotten_monsters:buried_bone","forgotten_monsters:buried_bone"},
-    {"","forgotten_monsters:buried_bone",""}
-  }
-})
-
-
-end
-
-
-
-
 -- CARNE DE GROWLER ===========================================================================================
 
 core.register_craftitem("forgotten_monsters:growler_meat_raw", {
@@ -156,7 +18,6 @@ core.register_craftitem("forgotten_monsters:growler_meat", {
     on_use = core.item_eat(5),
 })
 
-
 core.register_craft({
 	output = "forgotten_monsters:growler_meat",
 	type = "cooking",
@@ -164,19 +25,20 @@ core.register_craft({
 	cooktime = 4
 })
 
+-- Growler Leather
+core.register_craftitem("forgotten_monsters:growler_leather", {
+    description = "Growler Leather",
+    inventory_image = "Growler_Leather.png",
+})
 
 -- FOLHA  HUNGRY : ===============================================================================================
-
 core.register_craftitem("forgotten_monsters:hungry_sheet", {
     description = S("Hungry Sheet"),
     inventory_image = "folha.png",
 
 
 })
-
-
 --========================================== BONES TOOLS : ======================================================
-
 core.register_tool("forgotten_monsters:pick_bones", {
 	description = S("Bones Pickaxe"),
 	inventory_image = "bones_pick.png",
@@ -268,11 +130,7 @@ core.register_tool("forgotten_monsters:sword_bones", {
 	groups = {sword = 1}
 })
 
-
-
-
 -- HUMMER :
-
 core.register_node("forgotten_monsters:hammer", {
 	description = S("Skull Kings Hammer"),
 	drawtype = "mesh",
@@ -281,51 +139,36 @@ core.register_node("forgotten_monsters:hammer", {
 	use_texture_alpha = "clip",
 	inventory_image = "skullking_hammer_inv.png",
 	tool_capabilities = {
-		full_punch_interval = 0.5,
+		full_punch_interval = 1.5,
 		max_drop_level=1,
 		groupcaps={
 			snappy={times={[1]=1.50, [2]=0.60, [3]=0.30}, uses=100, maxlevel=3},
 			cracky = {times={[1]=1.90, [2]=0.90, [3]=0.40}, uses=100, maxlevel=3},
 		},
-		damage_groups = {fleshy=10},
+		damage_groups = {fleshy=11},
 	},
 	
 	
 	sound = {
-	--breaks = "default_tool_breaks",
 	punch_use = "swoosh1",
-	punch_use_air ="swoosh1",
-	
+	punch_use_air ="swoosh1",	
 	},
-	
-	
+		
 	groups = {sword = 1,pickaxe = 1,dig_immediate=3},
 	_mcl_hardness = 1,
 	_mcl_blast_resistance = 5,
 	paramtype = "light",
-
-
-	paramtype2 = "facedir",
-		selection_box = {
-			type = "fixed", -- fica no formato da caixa se ajustado
+	paramtype2 = "facedir",selection_box = {
+			type = "fixed", 
 			fixed = {
-				{-0.32, -0.5, -0.3, 0.95, 1.05, 0.3},
+			{-0.32, -0.5, -0.3, 0.95, 1.05, 0.3},
 				
 			},
-		},
-		
-		
-		
-		
-	
+       },
+									
 })
-
-
-
  --========================================== TROFEU : =========================================================
- 
  -- == MESE LORD :
- 
  core.register_node("forgotten_monsters:meselord_trophy", {
 	description = S("Mese Lord Trophy"),
 	drawtype = "mesh",
@@ -351,11 +194,7 @@ core.register_node("forgotten_monsters:hammer", {
 		
 	
 })
- 
-
-
 -- === GOLEM :
-
 core.register_node("forgotten_monsters:golem_trophy", {
 	description = S("Golem Trophy"),
 	drawtype = "mesh",
@@ -382,9 +221,7 @@ core.register_node("forgotten_monsters:golem_trophy", {
 	
 })
 
-
 -- === SKULL KING :
-
 core.register_node("forgotten_monsters:skullking_trophy", {
 	description = S("Skull King Trophy"),
 	drawtype = "mesh",
@@ -410,24 +247,15 @@ core.register_node("forgotten_monsters:skullking_trophy", {
 		
 	
 })
-
-
-
-
 --- ======================================== ITENS : ===========================================================
-
 core.register_craftitem("forgotten_monsters:buried_bone", {
     description = S("Buried Bone"),
     inventory_image = "buried_bone.png",
  
 	
 })
-
-
 --===================================== COMPATIBILIDADE COM BONEMEAL : ===========================================
-
 if core.get_modpath("bonemeal") then
-
 core.register_craft({
     type = "shapeless",
     output = "bonemeal:bonemeal",
@@ -439,9 +267,7 @@ core.register_craft({
 
 end
 
-
 if core.get_modpath("mcl_bone_meal") then
-
 core.register_craft({
     type = "shapeless",
     output = "mcl_bone_meal:bone_meal",
@@ -452,8 +278,6 @@ core.register_craft({
 })
 
 end
-
-
 -- ================================================ CURA : ======================================================
 -- Sound : https://freesound.org/people/craigglenday/sounds/517173/
 
@@ -464,67 +288,58 @@ core.register_craftitem("forgotten_monsters:old_bottle", {
 	
 })
 
-
-
 core.register_craftitem("forgotten_monsters:healing", {
     description = S("Healing"),
     inventory_image = "elixi.png",
-    stack_max = 1,
+    --stack_max = 1,
     groups = {vessel = 1},
     
-    
-    on_use = function(itemstack, user, pointed_thing,pos) -- função para recuperar vida simples
-		local hp = user:get_hp() -- usuario consegue o valor atual de sua vida
-		if hp ~= 20 then -- comparando vida
-			user:set_hp(hp + 5)  -- atribuindo mais 5 de vida
-			--itemstack:take_item( )
-		end
-		
-		core.sound_play("bebendo", {
-			pos = pos,
-			gain = 1.0,
-			max_hear_distance = 5,
-		})
-		
+    on_use = function(itemstack, user, pointed_thing,pos) 
+		local hp = user:get_hp() 
 		local pos = user:getpos()
 		
-		for i=1,30 do
+		if hp >= 20 then return end
 		
-	        core.add_particle({
-		pos = pos,
-		acceleration = 0,
-                velocity = {x =math.random(-3,3),y=math.random(-3,3),z=math.random(-3,3)},
-          	-- x ou y ,ou z  = random (-3 right , 3 left )
-		size = 2, 
-		expirationtime = 2.0,
-		collisiondetection = false,
-		vertical = false,
-		texture = "cura.png",
-		glow = 8,
-	        })
-	        
-	        end
-	        
-	        
+		if hp ~= 20 then 
+		   user:set_hp(hp + 5)  
+		   --itemstack:take_item( )
+		end		
+		core.sound_play("bebendo", {pos = pos,gain = 1.0,max_hear_distance = 5})
+	        core.add_particlespawner({      
+		    amount = 10,
+		    time = 1.5,
+		    minpos = {x = pos.x, y = pos.y + 1.5, z = pos.z },
+		    maxpos = {x = pos.x , y = pos.y + 0.7, z = pos.z},
+		    
+		    minvel = {x=0, y= 0, z=0},
+		    maxvel = {x=math.random(-0.5,0.5), y= 1, z=math.random(-0.5,0.5)},
+		    
+		    minacc = {x=0, y= 0, z=0},
+		    maxacc = {x=0, y= 0, z=0},
+		    
+		    minexptime = 0.5,
+		    maxexptime = 1,
+		    minsize = 2,
+		    maxsize = 1,
+		    texture = "cura.png",
+		    
+	        })	        
 		
-		return  --"vessels:glass_bottle"  
+		if not minetest.setting_getbool("creative_mode") then
+		  itemstack:take_item() 
+		  user:get_inventory():add_item("main", "vessels:glass_bottle 1") 
+		end   		
+		return itemstack
 	end
 	
-
 })
-
-
-
 -- crumpled paper ===============================================================================================
-
 core.register_craftitem("forgotten_monsters:crumpled_paper", {
     description = S("Crumpled Paper"),
     inventory_image = "old_bottle.png",
 })
 
-
 -- BOOK : ======================================================================================================= Livro
-
 local book_txt = S("Welcome to your new journey,")
 local book_txt2 = S("of adventures, explorations and battles.")
 local book_txt3 = S("Become as strong as possible, create summoning books,")
@@ -532,7 +347,6 @@ local book_txt4 = S("and defeat the bosses.")
 local book_txt5 = S("The bosses, Golem and Mese Lord, drop useful items,")
 local book_txt6 = S("for the recipes of the books.")
 local book_txt7 = S("Have fun!")
-
 
 core.register_craftitem("forgotten_monsters:fgbook", {
     description = S("Forgotten Book"),
@@ -555,9 +369,6 @@ core.register_craftitem("forgotten_monsters:fgbook", {
         return itemstack
     end
 })
-
-
-
 -- letter from the queen : ======================================================================================= Carta
 
 local letter_label = S("My dear,")
@@ -571,7 +382,7 @@ local letter_label8 = S("Your Queen...")
 
 
 
-core.register_craftitem("forgotten_monsters:letter_queen", {
+core.register_craftitem("forgotten_monsters:letter_queen", { -- ENCONTRATDO NO FUTURO EM BAUS DE LOOT
     description = S("Letter from the Queen"),
     inventory_image = "letter_queen.png",
     stack_max = 1,
@@ -591,20 +402,19 @@ core.register_craftitem("forgotten_monsters:letter_queen", {
     end
 })
 
-
-
-
-
---- CORAÇÃO DE MESE : =============================================================================================
+--- CORAÇÃO DE MESE e Eye of the golem : =============================================================================================
 core.register_craftitem("forgotten_monsters:heart_of_mese", {
     description = S("Heart of Mese"),
     inventory_image = "heart_of_mese.png",
  	
 })
 
-
+core.register_craftitem("forgotten_monsters:eye_of_the_golem", {
+    description = "Eye of the Golem", -- falta tradução
+    inventory_image = "Eye_of_the_golem.png",
+ 	
+})
 --- LIVRO DE INVOCÃO : ===========================================================================================
-
 core.register_craftitem("forgotten_monsters:summon_mese_lord", {
     description = S("Mese Lord's Summoning Book"),
     inventory_image = "summon_boock_meselord.png", 
@@ -614,41 +424,11 @@ core.register_craftitem("forgotten_monsters:summon_mese_lord", {
         if pointed_thing.type == "node" then
             local pos = pointed_thing.above 
     	    
-    	     local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
-    	      
-             core.add_entity(summon_pos, "forgotten_monsters:meselord")
-             
-               -- PARTICULAS
-               for px = 1,3 do
-                for py = 1,5 do
-                 for pz = 1,3 do
-                 
-                 
-		core.add_particlespawner({
-		    amount = 1,
-		    time = 0.5,
-		    minpos = {x = pos.x + px, y = pos.y + py, z = pos.z + pz},
-		    maxpos = {x = pos.x - px, y = pos.y - py, z = pos.z - pz},
-		    
-		    minvel = {x=0, y= 1, z=0},
-		    maxvel = {x=0, y= 1, z=0},
-		    
-		    minacc = {x=0, y= 0, z=0},
-		    maxacc = {x=0, y= 0, z=0},
-		    
-		    minexptime = 1,
-		    maxexptime = 1.5,
-		    minsize = 5,
-		    maxsize = 3,
-		    texture = "part_spawn_lord.png",
-		})
-		
-		end
-	       end
-	     end
-        
-            
-            itemstack:take_item()
+    	     local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}   	     
+             core.add_entity(summon_pos, "forgotten_monsters:meselord")     
+	     part_summon (pos) 
+       
+             itemstack:take_item()
             return itemstack
         end
     end,
@@ -669,43 +449,13 @@ core.register_craftitem("forgotten_monsters:summon_golem", {
         
              core.add_entity(summon_pos, "forgotten_monsters:golem")
              
-               -- PARTICULAS
-		
-               for px = 1,3 do
-                for py = 1,5 do
-                 for pz = 1,3 do
-                 
-                 
-		core.add_particlespawner({
-		    amount = 1,
-		    time = 0.5,
-		    minpos = {x = pos.x + px, y = pos.y + py, z = pos.z + pz},
-		    maxpos = {x = pos.x - px, y = pos.y - py, z = pos.z - pz},
-		    
-		    minvel = {x=0, y= 1, z=0},
-		    maxvel = {x=0, y= 1, z=0},
-		    
-		    minacc = {x=0, y= 0, z=0},
-		    maxacc = {x=0, y= 0, z=0},
-		    
-		    minexptime = 1,
-		    maxexptime = 1.5,
-		    minsize = 5,
-		    maxsize = 3,
-		    texture = "part_spawn_golem.png",
-		})
-		
-		end
-	       end
-	     end
-        
-            
-            itemstack:take_item()
+             part_summon (pos) 
+                   
+             itemstack:take_item()
             return itemstack
         end
     end,
 })
-
 
 
 core.register_craftitem("forgotten_monsters:summon_sking", {
@@ -721,46 +471,15 @@ core.register_craftitem("forgotten_monsters:summon_sking", {
         
              core.add_entity(summon_pos, "forgotten_monsters:sking")
              
-                 -- PARTICULAS
-		
-               for px = 1,3 do
-                for py = 1,5 do
-                 for pz = 1,3 do
-                 
-                 
-		core.add_particlespawner({
-		    amount = 1,
-		    time = 0.5,
-		    minpos = {x = pos.x + px, y = pos.y + py, z = pos.z + pz},
-		    maxpos = {x = pos.x - px, y = pos.y - py, z = pos.z - pz},
-		    
-		    minvel = {x=0, y= 1, z=0},
-		    maxvel = {x=0, y= 1, z=0},
-		    
-		    minacc = {x=0, y= 0, z=0},
-		    maxacc = {x=0, y= 0, z=0},
-		    
-		    minexptime = 1,
-		    maxexptime = 1.5,
-		    minsize = 5,
-		    maxsize = 3,
-		    texture = "part_spawn_king.png",
-		})
-		
-		end
-	       end
-	     end
-        
+             part_summon (pos)
             
-            itemstack:take_item()
+             itemstack:take_item()
             return itemstack
         end
     end,
 })
 
-
 -- =========================================== BLOCOS :  ==========================================================
-
 core.register_node("forgotten_monsters:buried_bone_block", {
 	description = S("Buried Bone Block"),
 	tiles = {"buried_bone_block.png"}, 
@@ -770,6 +489,136 @@ core.register_node("forgotten_monsters:buried_bone_block", {
     drop = "forgotten_monsters:buried_bone_block",
        
 })
+--========================================== NEW TOOLS 2025: ======================================================
+minetest.register_tool("forgotten_monsters:forgotten_sword", {
+	description = "Forgotten Sword",
+	inventory_image = "forgotten_sword.png",
+	tool_capabilities = {
+		full_punch_interval = 1,
+		max_drop_level=1,
+		groupcaps={
+			snappy={times={[1]=1.40, [2]=0.60, [3]=0.15}, uses=3031, maxlevel=6},
+		},
+		damage_groups = {fleshy=11},
+	},
+	sound = {breaks = "default_tool_breaks"},
+	--sound = {breaks = "default_tool_breaks"},
+	groups = {sword = 1,enchantability = 10, fire_immune = 1}
+})
 
+minetest.register_tool("forgotten_monsters:spine_sword", {
+	description = "Spine Sword",
+	inventory_image = "Spine_sword.png",
+	tool_capabilities = {
+		full_punch_interval = 0.7,
+		max_drop_level=1,
+		groupcaps={
+			snappy={times={[1]=1.40, [2]=0.60, [3]=0.15}, uses=90, maxlevel=6},
+		},
+		damage_groups = {fleshy=7},
+	},
+	sound = {breaks = "default_tool_breaks"},
+	--sound = {breaks = "default_tool_breaks"},
+	groups = {sword = 1,enchantability = 10, fire_immune = 1}
+})
 
+-- STAFF : =================================================================================
+mobs:register_arrow("forgotten_monsters:staff_arrow", {
+	visual = "sprite",
+	visual_size = {x = 0.7, y = 0.7},
+	textures = {"energy_mese.png"},
+	collisionbox = {-0.1, -0.1, -0.1, 0.1, 0.1, 0.1},
+	velocity = 35,
+	glow = 5,
+
+	on_activate = function(self, staticdata, dtime_s)
+	   self.object:set_armor_groups({immortal = 1, fleshy = 100})		        	   	   	    	          
+	end,
+
+	on_punch = function(self, hitter, tflp, tool_capabilities, dir)
+
+		if hitter and hitter:is_player() and tool_capabilities and dir then
+
+			local damage = tool_capabilities.damage_groups and
+			tool_capabilities.damage_groups.fleshy or 1
+
+			local tmp = tflp / (tool_capabilities.full_punch_interval or 1.4)
+
+			if damage > 6 and tmp < 4 then
+
+				self.object:set_velocity({
+					x = dir.x * self.velocity,
+					y = dir.y * self.velocity,
+					z = dir.z * self.velocity,
+				})
+			end
+		end
+	end,
+
+	hit_player = function(self, player)
+		player:punch(self.object, 1.0, {
+			full_punch_interval = 0.5,
+			damage_groups = {fleshy = 4},
+		}, nil)
+	end,
+	
+	hit_mob = function(self, player)
+		player:punch(self.object,1.0, {
+			full_punch_interval = 1.0,
+			damage_groups = {fleshy = 3},	
+		}, nil)
+	end,
+	
+	hit_node = function(self, pos, node)
+	end,
+})
+
+core.register_tool("forgotten_monsters:forgotten_staff", {
+    description = "Forgotten Staff [Experimental]",
+    inventory_image = "forgotten_staff.png",
+    range = 3,
+    stack_max= 1,
+	sound = {
+	--punch_use=" trod",
+	breaks = "default_tool_breaks",
+	--punch_use_air="trod",
+	},
+
+     on_use = function(itemstack, user, pointed_thing)
+        local dir = user:get_look_dir()
+        local player_pos = user:get_pos()     
+     
+        itemstack:add_wear_by_uses(300)
+        
+        local eye_height = user:get_properties().eye_height or 1.625
+			local shoot_pos = {
+			    x = player_pos.x,
+			    y = player_pos.y + eye_height,
+			    z = player_pos.z
+			}
+
+			local proj = core.add_entity(
+			    vector.add(shoot_pos, vector.multiply(dir, 0.5)), 
+			   "forgotten_monsters:staff_arrow"
+			)
+
+			proj:set_velocity(
+			       {
+			          x = dir.x * 15,
+			          y = dir.y * 15, 
+			          z = dir.z * 15
+			       }
+			    )
+
+			proj:set_acceleration(
+			       {
+			          x = dir.x * 0.1,
+			          y = dir.y * 0.1,
+			          z = dir.z * 0.1
+			       }
+			    )
+            
+        return itemstack
+    end,
+})
 

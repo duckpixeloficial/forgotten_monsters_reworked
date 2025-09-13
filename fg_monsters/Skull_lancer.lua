@@ -1,0 +1,62 @@
+-- SOUNDS LINK :
+-- Bones : https://freesound.org/people/spookymodem/sounds/202091/
+-- Axe : https://freesound.org/people/Wdfourtee/sounds/192055/
+
+mobs:register_mob("forgotten_monsters:skull_lancer", {
+	--nametag = "Skull Berserker" ,
+	type = "monster",
+	passive = false,
+	attack_type = "dogfight",
+	pathfinding = true,
+	reach = 4,
+	damage = 3,
+	hp_min = 30,
+	hp_max = 30,
+	armor = 100,
+	collisionbox = {-0.4, -0, -0.4, 0.4, 1.8, 0.4},
+	visual = "mesh",
+	mesh = "Skull_lancer.b3d",
+	textures = {
+		{"Skull_lancer.png"},
+	},
+	blood_texture = "buried_bone.png",
+	makes_footstep_sound = true,
+	sounds = {
+		--attack = "sword_skull",
+		death = "falling_bones",
+		random = "skeleton_random.2",
+		
+	},
+    -----------------------
+	pathfinding = 1,
+	fear_height = 6,
+	stepheight = 1.1,
+	walk_velocity = 1,
+	run_velocity = 4,
+	walk_chance = 50,
+	stand_chance = 50,
+	jump = true,
+	jump_height = 1.1,
+	floats = 0,
+	view_range = 25,
+    -------------------------
+	drops = {
+		{name = "forgotten_monsters:buried_bone", chance = 5, min = 1, max = 2},
+	        --{name = "forgotten_monsters:axe_bones", chance = 10, min = 1, max = 1},		
+	},
+	water_damage = 0,
+	lava_damage = 1,
+	light_damage = 0,
+	animation = {
+		speed_normal = 15,
+		speed_run = 30,
+		stand_start = 1,
+		stand_end = 19,
+		walk_start = 25,
+		walk_end = 45,
+		run_start = 25,
+		run_end = 45,
+	},
+})
+
+mobs:register_egg("forgotten_monsters:skull_lancer", "Skull Lancer", "skull_berserker_egg.png", 1)

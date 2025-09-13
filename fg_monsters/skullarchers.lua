@@ -12,8 +12,8 @@ mobs:register_mob("forgotten_monsters:sarchers", {
 	pathfinding = true,
 	reach = 20,
 	damage = math.random(3,5),
-	hp_min = 15,
-	hp_max = 15,
+	hp_min = 24,
+	hp_max = 24,
 	armor = 100,
 	collisionbox = {-0.4, -0, -0.4, 0.4, 1.8, 0.4},
 	visual = "mesh",
@@ -27,8 +27,9 @@ mobs:register_mob("forgotten_monsters:sarchers", {
 	blood_texture = "buried_bone.png",
 	makes_footstep_sound = true,
 	sounds = {
-
+		--attack = "",
 		death = "falling_bones",
+		random = "skeleton_random.2",
 	},
     -----------------------
 	pathfinding = 1,
@@ -43,9 +44,8 @@ mobs:register_mob("forgotten_monsters:sarchers", {
 	floats = 0,
 	view_range = 25,
     -------------------------	
-
 	drops = {
-		{name = "forgotten_monsters:buried_bone", chance = 1, min = 1, max = 2,},
+		{name = "forgotten_monsters:buried_bone", chance = 5, min = 1, max = 2,},
 		
 	},
 	water_damage = 0,
@@ -65,12 +65,6 @@ mobs:register_mob("forgotten_monsters:sarchers", {
 	},
 })
 
-
-
-
-
-
-
 -- ARROW ================================================================================================
 core.register_craftitem("forgotten_monsters:skull_arrow", {
 	description = "Skull Archers Arrow",
@@ -78,24 +72,22 @@ core.register_craftitem("forgotten_monsters:skull_arrow", {
 	groups = {not_in_creative_inventory = 1}
 })
 
-mobs:register_arrow("forgotten_monsters:sarchers_arrow", {  --arrow
+mobs:register_arrow("forgotten_monsters:sarchers_arrow", { 
 
    visual = "wielditem",
    visual_size = {x=0.3, y=0.3},
-   velocity = 12,
-   textures = {"forgotten_monsters:skull_arrow"},  -- posso criar um bloco, ou flecha 3d
+   velocity = 35,
+   textures = {"forgotten_monsters:skull_arrow"}, 
    --tail = 1,
    --tail_texture = "particules_arrow.png",
    --tail_size = 2.0,
    rotate = 180,
    damage = 2,
 
-
-
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 3},
+			damage_groups = {fleshy = 4},
 
 			core.sound_play("arrow_hit_1", {
 			pos = pos,
@@ -125,7 +117,4 @@ mobs:register_arrow("forgotten_monsters:sarchers_arrow", {  --arrow
 	end
 })
 
-
-
 mobs:register_egg("forgotten_monsters:sarchers", "skull Archers", "eggsarc.png", 1)
-
