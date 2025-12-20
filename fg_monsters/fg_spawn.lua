@@ -25,7 +25,7 @@ mobs:spawn({
 	neighbors = "air",
 	min_light = 0,
 	max_light = max_light_skull,
-	chance = 1200,
+	chance = 2000,
 	max_height = 200,
 })
 --end
@@ -35,7 +35,7 @@ mobs:spawn({
 	neighbors = "air",
 	min_light = 0,
 	max_light = max_light_skull,
-	chance = 1200,
+	chance = 2000,
 	max_height = 200,
 })
 
@@ -45,7 +45,7 @@ mobs:spawn({
 	neighbors = "air",
 	min_light = 0,
 	max_light = max_light_skull,
-	chance = 1200,
+	chance = 2000,
 	max_height = 200,
 })
 
@@ -55,7 +55,7 @@ mobs:spawn({
 	neighbors = "air",
 	min_light = 0,
 	max_light = max_light_skull,
-	chance = 1200,
+	chance = 2000,
 	max_height = 200,
 })
 -- OUTROS : =============================================================================
@@ -79,7 +79,7 @@ mobs:spawn({
 	neighbors = "air",
 	min_light = 14,
 	--interval = 30, -- 60
-	chance = 1200, -- 2000
+	chance = 2000, -- 2000
 	min_height = 0,
 	max_height = 200,
 })

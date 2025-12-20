@@ -47,7 +47,7 @@ mobs:register_mob("forgotten_monsters:golem", {
 	drops = {
 		--{name = "forgotten_monsters:golem_trophy", chance = 1, min = 1, max = 1},
 		{name = "forgotten_monsters:eye_of_the_golem", chance = 1, min = 1, max = 1},
-		{name = "forgotten_monsters:forgotten_sword", chance = 20, min = 1, max = 1},
+		{name = "forgotten_monsters:forgotten_sword", chance = 10, min = 1, max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 1,

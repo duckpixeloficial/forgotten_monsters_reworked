@@ -54,7 +54,7 @@ mobs:register_mob("forgotten_monsters:meselord", {
 	drops = {
 	        {name = "forgotten_monsters:heart_of_mese", chance = 1, min = 1, max = 1},
 		--{name = "forgotten_monsters:meselord_trophy", chance = 1, min = 1, max = 1},
-		{name = "forgotten_monsters:forgotten_staff", chance = 20, min = 1, max = 1},
+		{name = "forgotten_monsters:forgotten_staff", chance = 10, min = 1, max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 0,

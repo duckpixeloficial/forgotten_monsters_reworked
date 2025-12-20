@@ -327,7 +327,7 @@ core.register_craftitem("forgotten_monsters:healing", {
 		
 		if not minetest.setting_getbool("creative_mode") then
 		  itemstack:take_item() 
-		  user:get_inventory():add_item("main", "vessels:glass_bottle 1") 
+		  user:get_inventory():add_item("main", "forgotten_monsters:old_bottle 1") 
 		end   		
 		return itemstack
 	end

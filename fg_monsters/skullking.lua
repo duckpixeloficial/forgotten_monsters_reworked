@@ -64,6 +64,13 @@ mobs:register_mob("forgotten_monsters:sking", {
 		punch_start = 100,
 		punch_end =120,
 		punch_speed = 15,
+		--[[
+		die_start = 100,
+		die_end = 100,
+		die_speed = 20,
+		die_loop = false,
+		die_rotate = true,
+		]]
 	},
 	
 	after_activate = function(self, staticdata, def, dtime)

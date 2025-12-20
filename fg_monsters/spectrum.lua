@@ -39,8 +39,7 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 	floats = 0,
 	view_range = 25,
 	drops = {
-		{name = "forgotten_monsters:spectrum_orb", chance = 20, min = 1, max =1},
-
+		{name = "forgotten_monsters:spectrum_orb", chance = 5, min = 1, max =1},
 	},
 	water_damage = 0,
 	lava_damage = 0,
@@ -83,14 +82,14 @@ mobs:register_arrow("forgotten_monsters:spectrum_arrow", {
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
+			damage_groups = {fleshy = 3},
 		}, nil)
 	end,
 
 	hit_mob = function(self, player)
 		player:punch(self.object,1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
+			damage_groups = {fleshy = 3},
 		}, nil)
 	end,
 

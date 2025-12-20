@@ -38,7 +38,6 @@ mobs:register_mob("forgotten_monsters:hungry", {
 	view_range = 20,
 	drops = {
 		{name = "forgotten_monsters:hungry_sheet", chance = 1, min = 4, max = 4},
-
 	},
 	water_damage = 0,
 	lava_damage = 1,
