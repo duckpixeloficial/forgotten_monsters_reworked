@@ -111,7 +111,7 @@ core.register_tool("forgotten_monsters:sword_bones", {
 
 -- HUMMER :
 core.register_node("forgotten_monsters:hammer", {
-	description = S("Skull Kings Hammer"),
+	description = S("Skull Kings Hammer")..core.colorize("#06f831","\nDurability: Infinite\nDamage: 12"),
 	drawtype = "mesh",
 	mesh = "hummer_sk.obj",
 	tiles = {"skull_king.png"} ,
@@ -125,27 +125,22 @@ core.register_node("forgotten_monsters:hammer", {
 			snappy={times={[1]=1.50, [2]=0.60, [3]=0.30}, uses=100, maxlevel=3},
 			cracky = {times={[1]=1.90, [2]=0.90, [3]=0.40}, uses=100, maxlevel=3},
 		},
-		damage_groups = {fleshy=11},
+		damage_groups = {fleshy=12},
 	},
-	
-	
 	sound = {
 	punch_use = "swoosh1",
 	punch_use_air ="swoosh1",	
-	},
-		
+	},	
 	groups = {sword = 1,pickaxe = 1,dig_immediate=3},
 	_mcl_hardness = 1,
 	_mcl_blast_resistance = 5,
 	paramtype = "light",
 	paramtype2 = "facedir",selection_box = {
-			type = "fixed", 
-			fixed = {
-			{-0.32, -0.5, -0.3, 0.95, 1.05, 0.3},
-				
-			},
-       },
-									
+		  type = "fixed", 
+		  fixed = {
+		  {-0.32, -0.5, -0.3, 0.95, 1.05, 0.3},	
+		},
+       },									
 })
  --========================================== TROFEU : =========================================================
  -- == MESE LORD :
@@ -437,8 +432,7 @@ core.register_node("forgotten_monsters:buried_bone_block", {
 	groups = {cracky = 2,pickaxey=1},
 	_mcl_hardness = 2,
 	_mcl_blast_resistance = 2,
-    drop = "forgotten_monsters:buried_bone_block",
-       
+    drop = "forgotten_monsters:buried_bone_block",      
 })
 --========================================== NEW TOOLS 2025: ======================================================
 minetest.register_tool("forgotten_monsters:forgotten_sword", {
@@ -454,7 +448,7 @@ minetest.register_tool("forgotten_monsters:forgotten_sword", {
 	},
 	sound = {breaks = "default_tool_breaks"},
 	--sound = {breaks = "default_tool_breaks"},
-	groups = {sword = 1,enchantability = 10, fire_immune = 1}
+	groups = {sword = 1,weapon = 1,enchantability = 10, fire_immune = 1}
 })
 
 minetest.register_tool("forgotten_monsters:spine_sword", {
@@ -509,14 +503,21 @@ mobs:register_arrow("forgotten_monsters:staff_arrow", {
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
-			damage_groups = {fleshy = 4},
+			damage_groups = {fleshy = 9},
 		}, nil)
 	end,
 	
 	hit_mob = function(self, player)
 		player:punch(self.object,1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 3},	
+			damage_groups = {fleshy = 9},	
+		}, nil)
+	end,
+	
+	hit_object = function(self, player)
+		player:punch(self.object,1.0, {
+			full_punch_interval = 1.0,
+			damage_groups = {fleshy = 9},	
 		}, nil)
 	end,
 	
@@ -525,7 +526,7 @@ mobs:register_arrow("forgotten_monsters:staff_arrow", {
 })
 
 core.register_tool("forgotten_monsters:forgotten_staff", {
-    description = "Forgotten Staff [Experimental]",
+    description = "Forgotten Staff [Experimental]"..core.colorize("#06f831","\nDurability: 300 uses\nDamage: 9"),
     inventory_image = "forgotten_staff.png",
     range = 3,
     stack_max= 1,
