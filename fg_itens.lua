@@ -389,7 +389,6 @@ core.register_craftitem("forgotten_monsters:summon_golem", {
     inventory_image = "summon_boock_golem.png", 
 
     on_place = function(itemstack, placer, pointed_thing)
-        
         if pointed_thing.type == "node" then
             local pos = pointed_thing.above 
     
@@ -438,6 +437,7 @@ core.register_node("forgotten_monsters:buried_bone_block", {
 minetest.register_tool("forgotten_monsters:forgotten_sword", {
 	description = "Forgotten Sword",
 	inventory_image = "forgotten_sword.png",
+	_mcl_toollike_wield = true,
 	tool_capabilities = {
 		full_punch_interval = 1,
 		max_drop_level=1,
@@ -454,6 +454,7 @@ minetest.register_tool("forgotten_monsters:forgotten_sword", {
 minetest.register_tool("forgotten_monsters:spine_sword", {
 	description = "Spine Sword",
 	inventory_image = "Spine_sword.png",
+	_mcl_toollike_wield = true,
 	tool_capabilities = {
 		full_punch_interval = 0.7,
 		max_drop_level=1,
