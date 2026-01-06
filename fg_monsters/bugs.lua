@@ -57,14 +57,16 @@ mobs:spawn({
 
 mobs:register_egg("forgotten_monsters:bug", "Bug", "bug.png",1)
 
-minetest.register_craftitem("forgotten_monsters:bug_meat", {
+core.register_craftitem("forgotten_monsters:bug_meat", {
 	description = "Bug Meat",
 	groups = {},
 	inventory_image = "Bug_Meat.png",
+	_rp_hunger_food = 10,
+        _rp_hunger_sat = 10, 
 	on_use = minetest.item_eat(10),
 })
 
-if minetest.get_modpath("hunger_ng") ~= nil then
+if core.get_modpath("hunger_ng") ~= nil then
  local add = hunger_ng.add_hunger_data
  add('forgotten_monsters:bug_meat',{ satiates = 10})
 end

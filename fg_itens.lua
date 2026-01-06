@@ -1,22 +1,8 @@
 
 local S = core.get_translator("forgotten_monsters")
--- CARNE DE GROWLER ===========================================================================================
 
-core.register_craftitem("forgotten_monsters:growler_meat_raw", {
-    description = S("Growler Meat Raw"),
-    inventory_image = "growler_meat_raw.png",
-    _rp_hunger_food = -5,
-    _rp_hunger_sat = -5, 
-    on_use = core.item_eat(-5),
-})
-
-core.register_craftitem("forgotten_monsters:growler_meat", {
-    description = S("Growler Meat"),
-    inventory_image = "growler_meat.png",
-    _rp_hunger_food = 5,
-    _rp_hunger_sat = 5,
-    on_use = core.item_eat(5),
-})
+core.register_alias("forgotten_monsters:growler_meat_raw","forgotten_monsters:bug_meat")
+core.register_alias("forgotten_monsters:growler_meat","forgotten_monsters:bug_meat")
 
 core.register_craft({
 	output = "forgotten_monsters:growler_meat",
@@ -35,14 +21,13 @@ core.register_craftitem("forgotten_monsters:growler_leather", {
 core.register_craftitem("forgotten_monsters:hungry_sheet", {
     description = S("Hungry Sheet"),
     inventory_image = "folha.png",
-
-
 })
 --========================================== BONES TOOLS : ======================================================
 core.register_tool("forgotten_monsters:pick_bones", {
 	description = S("Bones Pickaxe"),
 	inventory_image = "bones_pick.png",
 	wield_image = "bones_pick.png",
+	_mcl_toollike_wield = true,
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -58,14 +43,14 @@ core.register_tool("forgotten_monsters:pick_bones", {
 	punch_use_air ="swoosh1",
 	},
 	
-	groups = {pickaxe = 1}
+	groups = {pickaxe = 1,weapon = 1,enchantability = -1},
 })
-
 
 core.register_tool("forgotten_monsters:shovel_bones", {
 	description = S("Bones Shovel"),
 	inventory_image = "bones_shovel.png",
 	wield_image = "bones_shovel.png",
+	_mcl_toollike_wield = true,
 	tool_capabilities = {
 		full_punch_interval = 1.1,
 		max_drop_level=1,
@@ -81,14 +66,14 @@ core.register_tool("forgotten_monsters:shovel_bones", {
 	punch_use_air ="swoosh1",
 	},
 	
-	groups = {shovel = 1}
+	groups = {shovel = 1,weapon = 1,enchantability = -1},
 })
-
 
 core.register_tool("forgotten_monsters:axe_bones", {
 	description = S("Bones Axe"),
 	inventory_image = "bones_axe.png",
 	wield_image = "bones_axe.png",
+	_mcl_toollike_wield = true,
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -104,14 +89,14 @@ core.register_tool("forgotten_monsters:axe_bones", {
 	punch_use_air ="swoosh1",
 	},
 	
-	groups = {axe = 1}
+	groups = {axe = 1,weapon = 1,enchantability = -1},
 })
-
 
 core.register_tool("forgotten_monsters:sword_bones", {
 	description = S("Bones Sword"),
 	inventory_image = "bones_sword.png",
 	wield_image = "bones_sword.png",
+	_mcl_toollike_wield = true,
 	tool_capabilities = {
 		full_punch_interval = 0.8,
 		max_drop_level=1,
@@ -127,7 +112,7 @@ core.register_tool("forgotten_monsters:sword_bones", {
 	punch_use_air ="swoosh1",
 	},
 	
-	groups = {sword = 1}
+	groups = {sword = 1,weapon = 1,enchantability = -1},
 })
 
 -- HUMMER :
@@ -138,6 +123,7 @@ core.register_node("forgotten_monsters:hammer", {
 	tiles = {"skull_king.png"} ,
 	use_texture_alpha = "clip",
 	inventory_image = "skullking_hammer_inv.png",
+	_mcl_toollike_wield = true,
 	tool_capabilities = {
 		full_punch_interval = 1.5,
 		max_drop_level=1,
@@ -180,8 +166,6 @@ core.register_node("forgotten_monsters:hammer", {
 	_mcl_hardness = 1,
 	_mcl_blast_resistance = 3,
 	paramtype = "light",
-
--- CAIXA DE COLISÃO :
 	paramtype2 = "facedir",
 		selection_box = {
 			type = "fixed", -- fica no formato da caixa se ajustado
@@ -190,9 +174,6 @@ core.register_node("forgotten_monsters:hammer", {
 				
 			},
 		},
-		
-		
-	
 })
 -- === GOLEM :
 core.register_node("forgotten_monsters:golem_trophy", {
@@ -206,8 +187,6 @@ core.register_node("forgotten_monsters:golem_trophy", {
 	_mcl_hardness = 1,
 	_mcl_blast_resistance = 3,
 	paramtype = "light",
-
--- CAIXA DE COLISÃO :
 	paramtype2 = "facedir",
 		selection_box = {
 			type = "fixed", -- fica no formato da caixa se ajustado
@@ -215,10 +194,7 @@ core.register_node("forgotten_monsters:golem_trophy", {
 				{-0.5, -0.5, 0.45, 0.5, 0.5, 0.5},
 				
 			},
-		},
-		
-		
-	
+		},	
 })
 
 -- === SKULL KING :
@@ -233,8 +209,6 @@ core.register_node("forgotten_monsters:skullking_trophy", {
 	_mcl_hardness = 1,
 	_mcl_blast_resistance = 3,
 	paramtype = "light",
-
--- CAIXA DE COLISÃO :
 	paramtype2 = "facedir",
 		selection_box = {
 			type = "fixed", -- fica no formato da caixa se ajustado
@@ -243,16 +217,11 @@ core.register_node("forgotten_monsters:skullking_trophy", {
 				
 			},
 		},
-		
-		
-	
 })
 --- ======================================== ITENS : ===========================================================
 core.register_craftitem("forgotten_monsters:buried_bone", {
     description = S("Buried Bone"),
-    inventory_image = "buried_bone.png",
- 
-	
+    inventory_image = "buried_bone.png",	
 })
 --===================================== COMPATIBILIDADE COM BONEMEAL : ===========================================
 if core.get_modpath("bonemeal") then
@@ -283,9 +252,7 @@ end
 
 core.register_craftitem("forgotten_monsters:old_bottle", {
     description = S("Old Bottle"),
-    inventory_image = "old_bottle.png",
- 
-	
+    inventory_image = "old_bottle.png",	
 })
 
 core.register_craftitem("forgotten_monsters:healing", {
@@ -330,8 +297,7 @@ core.register_craftitem("forgotten_monsters:healing", {
 		  user:get_inventory():add_item("main", "forgotten_monsters:old_bottle 1") 
 		end   		
 		return itemstack
-	end
-	
+	end	
 })
 -- crumpled paper ===============================================================================================
 core.register_craftitem("forgotten_monsters:crumpled_paper", {
@@ -370,7 +336,6 @@ core.register_craftitem("forgotten_monsters:fgbook", {
     end
 })
 -- letter from the queen : ======================================================================================= Carta
-
 local letter_label = S("My dear,")
 local letter_label2 = S("I write to you from Ethreal, where the cold chills to the bone.")
 local letter_label3 = S("The wind howls through the endless nights, and the ice blankets the fields like a white,silent shroud.")
@@ -379,8 +344,6 @@ local letter_label5 = S("I hope, with all my heart, that we will see each other 
 local letter_label6 = S("Until then, I hold on to my memories of you as a treasure that warms me on the coldest nights.")
 local letter_label7 = S("love and longing,")
 local letter_label8 = S("Your Queen...")
-
-
 
 core.register_craftitem("forgotten_monsters:letter_queen", { -- ENCONTRATDO NO FUTURO EM BAUS DE LOOT
     description = S("Letter from the Queen"),
@@ -434,8 +397,6 @@ core.register_craftitem("forgotten_monsters:summon_mese_lord", {
     end,
 })
 
-
-
 core.register_craftitem("forgotten_monsters:summon_golem", {
     description = S("Golem Summoning Book"),
     inventory_image = "summon_boock_golem.png", 
@@ -457,7 +418,6 @@ core.register_craftitem("forgotten_monsters:summon_golem", {
     end,
 })
 
-
 core.register_craftitem("forgotten_monsters:summon_sking", {
     description = S("Skull King Summoning Book"),
     inventory_image = "summon_boock_skullking.png", 
@@ -478,7 +438,6 @@ core.register_craftitem("forgotten_monsters:summon_sking", {
         end
     end,
 })
-
 -- =========================================== BLOCOS :  ==========================================================
 core.register_node("forgotten_monsters:buried_bone_block", {
 	description = S("Buried Bone Block"),
@@ -578,7 +537,8 @@ core.register_tool("forgotten_monsters:forgotten_staff", {
     inventory_image = "forgotten_staff.png",
     range = 3,
     stack_max= 1,
-	sound = {
+    _mcl_toollike_wield = true,
+    sound = {
 	--punch_use=" trod",
 	breaks = "default_tool_breaks",
 	--punch_use_air="trod",

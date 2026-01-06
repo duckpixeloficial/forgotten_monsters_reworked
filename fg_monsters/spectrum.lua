@@ -1,4 +1,3 @@
-
 -- sound : https://freesound.org/people/Legnalegna55/sounds/547558/
 mobs:register_mob("forgotten_monsters:spectrum", {
 	--nametag = "Spectrum" ,
@@ -23,12 +22,11 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 		{"spectrum.png"},
 	},
 	glow = 3,
-	--blood_texture = "blood_spectrum.png",
+	blood_texture = "blood_spectrum.png",
 	sounds = {
 		random = "spectrum",
 		shoot_attack = "orb_spectrum",
 	},
-
 	fly = true ,
 	fly_in = "air",
 	pathfinding = 1,
@@ -39,13 +37,12 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 	floats = 0,
 	view_range = 25,
 	drops = {
-		{name = "forgotten_monsters:spectrum_orb", chance = 5, min = 1, max =1},
+		{name = "forgotten_monsters:spectrum_orb", chance = 2, min = 1, max =1},
 	},
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,
 	animation = {
-
 		speed_run = 15,
 		stand_start = 1,
 		stand_end = 39,
@@ -56,7 +53,6 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 		shoot_start = 100,
 		shoot_end = 129,
 	},
-
 })
 -- ARROW ================================================================================================
 core.register_craftitem("forgotten_monsters:spectrum_magic_arrow", {
@@ -65,19 +61,16 @@ core.register_craftitem("forgotten_monsters:spectrum_magic_arrow", {
 	groups = {not_in_creative_inventory = 1}
 })
 
-mobs:register_arrow("forgotten_monsters:spectrum_arrow", {
-	
+mobs:register_arrow("forgotten_monsters:spectrum_arrow", {	
 	visual = "wielditem",
 	visual_size = {x=0.3, y=0.3},
 	velocity = 35,
 	textures = {"forgotten_monsters:spectrum_magic_arrow"}, 
 	--rotate = 180,
 	damage = 2,
-	glow = 5,
-	
+	glow = 5,	
 	collisionbox = {-0.5,-0.5,-0.5, 0.5,0.5,0.5},
         selectionbox = {-0.5,-0.5,-0.5, 0.5,0.5,0.5},
-
 
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
@@ -98,14 +91,12 @@ mobs:register_arrow("forgotten_monsters:spectrum_arrow", {
 })
 
 mobs:register_egg("forgotten_monsters:spectrum", "Spectrum", "spectrum_egg.png", 0)
-
 -- SPECTRUM ORB
 core.register_craftitem("forgotten_monsters:spectrum_orb", {
     description = "Spectrum Orb",
     inventory_image = "spectrum_orb.png",
     light_source = 3,
 })
-
 -- SPECTRUM ORB BLOCK :
 core.register_node("forgotten_monsters:spectrum_orb_block", {
 	description = "Spectrum Orb Block",
@@ -117,9 +108,8 @@ core.register_node("forgotten_monsters:spectrum_orb_block", {
 	tiles = {{
 		name = "anim_orb_block.png",
 		animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 2}
+	 },
 	},
-	},
-
 })
 
 core.register_tool("forgotten_monsters:translocation_rod", {

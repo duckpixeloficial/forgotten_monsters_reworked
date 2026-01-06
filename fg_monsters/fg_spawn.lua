@@ -13,12 +13,9 @@ local skull_spawns = {
 local max_light_skull = 7
 
 if forgotten_monsters.daytime then -- Opção para não surgir de dia ..
-
-   max_light_skull = 14
-	
+   max_light_skull = 14	
 end
 
---if not core.get_modpath("mcl_core") then -- Algumas caveiras não deverar surgir no mcl , arqueira e normal
 mobs:spawn({
 	name = "forgotten_monsters:sarchers",
 	nodes = skull_spawns,
@@ -87,6 +84,7 @@ mobs:spawn({
 mobs:spawn({
 	name = "forgotten_monsters:spectrum",
 	nodes = {"air"},
+	neighbors = {"group:leaves"},
 	interval = 60,
 	chance = 2000,	-- 1200,
 	min_light = 0,
@@ -96,55 +94,3 @@ mobs:spawn({
 	max_height = 80,
 })
 
--- BOSSES : ==========================================================================
--- Agora devem ser sumonados, devido a diferença de altura e nodes entre jogos ;)
-
---[[
-mobs:spawn({
-	name = "forgotten_monsters:meselord",
-	nodes = {"air"},
-	max_light = 7,
-	interval = 60,
-  chance = 150000,
-	max_height = -550,
-	min_height = -650,
-})
-
-
-
-
-mobs:spawn({
-	name = "forgotten_monsters:golem",
-	nodes = {"group:stone"},
-	max_light = 7,
-	interval = 60,
-        chance = 150000,
-	max_height = -750,
-	min_height = -850,
-})
-
-
-mobs:spawn({
-	name = "forgotten_monsters:sking",
-	nodes = {"default:cobble","default:mossycobble", "default:chest"},
-	max_light = 7,
-	interval = 60,
-  	chance = 150000,
-	max_height = -1100,
-
-})
-
-mobs:spawn({
-	name = "forgotten_monsters:skull",
-	nodes = skull_spawns,
-	neighbors = "air",
-	min_light = 0,
-	max_light = max_light_skull,
-	chance = 8000,
-	--min_height = 0,
-	max_height = 200,
-	active_object_count = 1,
-
-})
-
-]]
