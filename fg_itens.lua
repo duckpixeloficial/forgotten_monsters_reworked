@@ -4,6 +4,11 @@ local S = core.get_translator("forgotten_monsters")
 core.register_alias("forgotten_monsters:growler_meat_raw","forgotten_monsters:bug_meat")
 core.register_alias("forgotten_monsters:growler_meat","forgotten_monsters:bug_meat")
 
+core.register_craftitem("forgotten_monsters:growler_leather", {
+    description = S("Growler Leather"),
+    inventory_image = "Growler_Leather.png",
+})
+
 core.register_craft({
 	output = "forgotten_monsters:growler_meat",
 	type = "cooking",
@@ -245,7 +250,6 @@ core.register_craftitem("forgotten_monsters:old_bottle", {
 core.register_craftitem("forgotten_monsters:healing", {
     description = S("Healing"),
     inventory_image = "elixi.png",
-    --stack_max = 1,
     groups = {vessel = 1},
     
     on_use = function(itemstack, user, pointed_thing,pos) 
@@ -256,7 +260,6 @@ core.register_craftitem("forgotten_monsters:healing", {
 		
 		if hp ~= 20 then 
 		   user:set_hp(hp + 5)  
-		   --itemstack:take_item( )
 		end		
 		core.sound_play("bebendo", {pos = pos,gain = 1.0,max_hear_distance = 5})
 	        core.add_particlespawner({      
@@ -279,7 +282,7 @@ core.register_craftitem("forgotten_monsters:healing", {
 		    
 	        })	        
 		
-		if not minetest.setting_getbool("creative_mode") then
+		if not core.setting_getbool("creative_mode") then
 		  itemstack:take_item() 
 		  user:get_inventory():add_item("main", "forgotten_monsters:old_bottle 1") 
 		end   		

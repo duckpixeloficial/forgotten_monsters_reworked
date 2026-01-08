@@ -60,7 +60,6 @@ core.register_craft({
   }
 })
 
-
 --- FOGOTTENS ARMOR :
 mcl_armor.register_set({
 	name = "skullking",
@@ -74,8 +73,7 @@ mcl_armor.register_set({
 		head = 5,
 	},
 	sound_equip = "mcl_armor_equip_iron",
-	sound_unequip = "mcl_armor_unequip_iron",
-	
+	sound_unequip = "mcl_armor_unequip_iron",	
 })
 
 mcl_armor.register_set({
@@ -92,7 +90,7 @@ mcl_armor.register_set({
 		legs = 7,
 		feet = 4,
 	},
-
+     
 	sound_equip = "mcl_armor_equip_iron",
 	sound_unequip = "mcl_armor_unequip_iron",
 	groups = {},
@@ -101,8 +99,8 @@ mcl_armor.register_set({
 core.register_craft({
   output = "forgotten_monsters:chestplate_mcl_farmor",
   recipe = {
-    {"forgotten_monsters:Growler_Leather","","forgotten_monsters:Growler_Leather"},
-    {"forgotten_monsters:Growler_Leather","forgotten_monsters:buried_bone","forgotten_monsters:Growler_Leather"},
+    {"forgotten_monsters:growler_leather","","forgotten_monsters:growler_leather"},
+    {"forgotten_monsters:growler_leather","forgotten_monsters:buried_bone","forgotten_monsters:growler_leather"},
     {"forgotten_monsters:heart_of_mese","forgotten_monsters:heart_of_mese","forgotten_monsters:heart_of_mese"}
   }
 })
@@ -110,7 +108,7 @@ core.register_craft({
 core.register_craft({
   output = "forgotten_monsters:leggings_mcl_farmor",
   recipe = {
-    {"forgotten_monsters:Growler_Leather","forgotten_monsters:Eye_of_the_golem","forgotten_monsters:Growler_Leather"},
+    {"forgotten_monsters:growler_leather","forgotten_monsters:eye_of_the_golem","forgotten_monsters:growler_leather"},
     {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
     {"forgotten_monsters:heart_of_mese","","forgotten_monsters:heart_of_mese"}
   }
@@ -120,8 +118,8 @@ core.register_craft({
 core.register_craft({
   output = "forgotten_monsters:boots_mcl_farmor",
   recipe = {
-    {"forgotten_monsters:Growler_Leather","","forgotten_monsters:Growler_Leather"},
-    {"forgotten_monsters:Eye_of_the_golem","","forgotten_monsters:Eye_of_the_golem"},
+    {"forgotten_monsters:growler_leather","","forgotten_monsters:growler_leather"},
+    {"forgotten_monsters:eye_of_the_golem","","forgotten_monsters:eye_of_the_golem"},
     {"","",""}
   }
 })

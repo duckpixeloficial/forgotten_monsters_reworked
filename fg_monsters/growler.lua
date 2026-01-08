@@ -33,7 +33,7 @@ mobs:register_mob("forgotten_monsters:growler", {
 	floats = 1,
 	view_range = 25,
 	drops = {
-		{name = "forgotten_monsters:Growler_Leather", chance = 10, min = 1, max = 1},
+		{name = "forgotten_monsters:growler_leather", chance = 10, min = 1, max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 1,

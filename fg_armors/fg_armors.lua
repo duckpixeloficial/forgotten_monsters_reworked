@@ -146,8 +146,8 @@ armor:register_armor("forgotten_monsters:boots_forgotten", {
 core.register_craft({
   output = "forgotten_monsters:chestplate_forgotten",
   recipe = {
-    {"forgotten_monsters:Growler_Leather","","forgotten_monsters:Growler_Leather"},
-    {"forgotten_monsters:Growler_Leather","forgotten_monsters:buried_bone","forgotten_monsters:Growler_Leather"},
+    {"forgotten_monsters:growler_leather","","forgotten_monsters:growler_leather"},
+    {"forgotten_monsters:growler_leather","forgotten_monsters:buried_bone","forgotten_monsters:growler_leather"},
     {"forgotten_monsters:heart_of_mese","forgotten_monsters:heart_of_mese","forgotten_monsters:heart_of_mese"}
   }
 })
@@ -155,7 +155,7 @@ core.register_craft({
 core.register_craft({
   output = "forgotten_monsters:leggings_forgotten",
   recipe = {
-    {"forgotten_monsters:Growler_Leather","forgotten_monsters:Eye_of_the_golem","forgotten_monsters:Growler_Leather"},
+    {"forgotten_monsters:growler_leather","forgotten_monsters:eye_of_the_golem","forgotten_monsters:growler_leather"},
     {"forgotten_monsters:buried_bone","","forgotten_monsters:buried_bone"},
     {"forgotten_monsters:heart_of_mese","","forgotten_monsters:heart_of_mese"}
   }
@@ -165,8 +165,8 @@ core.register_craft({
 core.register_craft({
   output = "forgotten_monsters:boots_forgotten",
   recipe = {
-    {"forgotten_monsters:Growler_Leather","","forgotten_monsters:Growler_Leather"},
-    {"forgotten_monsters:Eye_of_the_golem","","forgotten_monsters:Eye_of_the_golem"},
+    {"forgotten_monsters:growler_leather","","forgotten_monsters:growler_leather"},
+    {"forgotten_monsters:eye_of_the_golem","","forgotten_monsters:eye_of_the_golem"},
     {"","",""}
   }
 })
