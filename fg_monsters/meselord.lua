@@ -4,12 +4,13 @@
 
 local arrow_damage = 7
 
+---- MESE GUARDIAN: ========================================================
 mobs:register_mob("forgotten_monsters:meselord", {
 	--nametag = "Mese Lord Boss" ,
 	type = "monster",
 	passive = false,
 	attack_npcs = false,
-	attack_type = "shoot",
+	attack_type = "dogshoot",
 	shoot_interval = 1.3,
 	shoot_offset = 1.5,
 	arrow = "forgotten_monsters:meselord_arrow",
@@ -20,9 +21,9 @@ mobs:register_mob("forgotten_monsters:meselord", {
 	hp_max = 450,
 	armor = 80,
 	visual = "mesh",
-	visual_size = {x = 18, y = 18},
+	visual_size = {x = 8, y = 8},
 	mesh = "mese_guardian.b3d",
-	collisionbox = {-1.0, -0.8, -1.0, 1.0, 1.0, 1.0},
+	collisionbox = {-1.0, -2.0, -1.0, 1.0, 1.5, 1.0},
 	textures = {
 		{"mese_guardian.png"},
 	},
@@ -33,9 +34,8 @@ mobs:register_mob("forgotten_monsters:meselord", {
 		shoot_attack = "lord_mese_shot"
 		--death = "",
 	},
-
-	fly = true ,
-	fly_in = "air",
+	--fly = true ,
+	--fly_in = "air",
 	-----------------------
 	pathfinding = 1,
 	fear_height = 6,
@@ -51,36 +51,47 @@ mobs:register_mob("forgotten_monsters:meselord", {
 	knock_back = false,
 	die_rotate = true,
 	-------------------------
-	drops = {
-	        {name = "forgotten_monsters:heart_of_mese", chance = 1, min = 1, max = 1},
-		--{name = "forgotten_monsters:meselord_trophy", chance = 1, min = 1, max = 1},
-		{name = "forgotten_monsters:forgotten_staff", chance = 10, min = 1, max = 1},
-	},
+	--drops = {},
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,
-
-
 	animation = {
 
 		speed_run = 15,
-		stand_start = 0,
-		stand_end = 10,
-		walk_start = 20,
-		walk_end = 60,
-		run_start = 80,
-		run_end = 100,
-		shoot_start = 120,
-		shoot_end = 160,
+		stand_start = 1,
+		stand_end = 40,
+		walk_start = 45,
+		walk_end = 75,
+		run_start = 45,
+		run_end = 75,
+		shoot_start = 130,
+		shoot_end = 149,
+		punch_start = 80,
+		punch_end = 119,
+		punch_loop = true,
+		die_start = 155,
+		die_end = 184,
+		die_speed = 20,
+		die_loop = false,
 	},
         
-	on_die = function(self, pos) 
-	    part_summon (pos)
-	end
+        custom_attack = function(self, to_attack)
+        local pp = self.attack:get_pos()
+        
+	self.attack_count = (self.attack_count or 0) + 1
+	if self.attack_count < 4 then return end
+	self.attack_count = 0
+
+	self:set_animation("punch", true)
+        core.sound_play("lord_mese_shot", {pos = pos_sk, gain = 0.5})
+        part_sking (pp) 
+        
+	return true 
+	end,
 	
 })
 
--- ARROW -----------------------------------------------------------
+-- MESE ARROWS : ======================================================================
 mobs:register_arrow("forgotten_monsters:meselord_arrow", {
 	visual = "sprite",
 	visual_size = {x = 0.7, y = 0.7},
@@ -102,26 +113,6 @@ mobs:register_arrow("forgotten_monsters:meselord_arrow", {
 	    self.damage = 2	  
           end
           
-	end,
-
-	on_punch = function(self, hitter, tflp, tool_capabilities, dir)
-
-		if hitter and hitter:is_player() and tool_capabilities and dir then
-
-			local damage = tool_capabilities.damage_groups and
-			tool_capabilities.damage_groups.fleshy or 1
-
-			local tmp = tflp / (tool_capabilities.full_punch_interval or 1.4)
-
-			if damage > 6 and tmp < 4 then
-
-				self.object:set_velocity({
-					x = dir.x * self.velocity,
-					y = dir.y * self.velocity,
-					z = dir.z * self.velocity,
-				})
-			end
-		end
 	end,
 
 	hit_player = function(self, player)

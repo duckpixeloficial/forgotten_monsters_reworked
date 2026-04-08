@@ -118,8 +118,8 @@ core.register_tool("forgotten_monsters:sword_bones", {
 core.register_node("forgotten_monsters:hammer", {
 	description = S("Skull Kings Hammer")..core.colorize("#06f831","\nDurability: Infinite\nDamage: 12"),
 	drawtype = "mesh",
-	mesh = "hummer_sk.obj",
-	tiles = {"skull_king.png"} ,
+	mesh = "hummer.obj",
+	tiles = {"sk_hammer.png"} ,
 	use_texture_alpha = "clip",
 	inventory_image = "skullking_hammer_inv.png",
 	_mcl_toollike_wield = true,
@@ -143,7 +143,7 @@ core.register_node("forgotten_monsters:hammer", {
 	paramtype2 = "facedir",selection_box = {
 		  type = "fixed", 
 		  fixed = {
-		  {-0.32, -0.5, -0.3, 0.95, 1.05, 0.3},	
+		  {-0.5, -0.5, -0.5, 0.5, 1, 0.5},	
 		},
        },									
 })

@@ -1,13 +1,14 @@
 ---- SKULL KING  ( BOSS FINAL ) ------------------------------------------------------------------------------------------------------
 -- sound attack : https://freesound.org/people/TomRonaldmusic/sounds/607201/
 -- sound hummer : https://freesound.org/people/TomRonaldmusic/sounds/607201/
-local last_attack = 0
- 
-mobs:register_mob("forgotten_monsters:sking", {
+ mobs:register_mob("forgotten_monsters:sking", {
 	--nametag = "Skull King Boss" ,
 	type = "monster",
 	passive = false,
-	attack_type = "dogfight",
+	attack_type = "dogshoot",
+	shoot_interval = 3,
+	shoot_offset = 1.3,
+	arrow = "forgotten_monsters:skullking_arrow",
 	pathfinding = true,
 	reach = 4,
 	damage = 12,
@@ -15,17 +16,18 @@ mobs:register_mob("forgotten_monsters:sking", {
 	hp_max = 1000,
 	armor = 80,
 	visual = "mesh",
-	visual_size = {x = 12, y = 12},
+	visual_size = {x = 15, y = 15},
 	mesh = "skull_king.b3d",
-	collisionbox = {-0.4, -0, -0.4, 0.4, 1.8, 0.4},
+	collisionbox = {-0.5, -0, -0.5, 0.5, 3, 0.5},
 	textures = {
-		{"skull_king.png"},
+		{"Skull_King_hammer.png"},
 	},
 	blood_texture = "buried_bone.png",
 	makes_footstep_sound = true,
 	sounds = {
 		attack = "skullking",
 		death = "falling_bones",
+		shoot_attack = "summon_boss",
 	},
 	-----------------------
 	pathfinding = 1,
@@ -55,22 +57,28 @@ mobs:register_mob("forgotten_monsters:sking", {
 	animation = {
 		speed_normal = 15,
 		speed_run = 25,
-		stand_start = 0,
-		stand_end = 10,
-		walk_start = 20,
-		walk_end = 60,
-		run_start = 70,
-		run_end = 90,
-		punch_start = 100,
-		punch_end =120,
-		punch_speed = 15,
-		--[[
-		die_start = 100,
-		die_end = 100,
+		stand_start = 1,
+		stand_end = 20,
+		walk_start = 45,
+		walk_end = 75,
+		run_start = 45,
+		run_end = 75,
+		punch_start = 105,
+		punch_end = 125,
+		punch_loop = false,
+		punch2_start = 80,
+		punch2_end = 100, -- 100 termina a espada
+		punch2_loop = false,
+		shoot_start = 1,
+		shoot_end = 20,
+		--shoot_start =130,
+		--shoot_end = 150,
+		--shoot_speed = 10,
+		--shoot_loop = false,
+		die_start = 155,
+		die_end = 200,
 		die_speed = 20,
 		die_loop = false,
-		die_rotate = true,
-		]]
 	},
 	
 	after_activate = function(self, staticdata, def, dtime)
@@ -82,45 +90,67 @@ mobs:register_mob("forgotten_monsters:sking", {
 
 	end,
 	
-	custom_attack = function(self, to_attack)	
-	 local current_time = core.get_us_time()	 
-	  if current_time - last_attack >= 4 * (10^6)  then 
-		last_attack = current_time 
-			        
-	   	--for _, player in ipairs(core.get_connected_players()) do
-				     				     
-			local attached = self.attack:get_attach()
-			local pp = self.attack:get_pos()
-			local pos_sk = self.object:get_pos()
-			local p_impact = math.random(0,5)
+	custom_attack = function(self, to_attack)
+        local pp = self.attack:get_pos()
+        
+	self.attack_count = (self.attack_count or 0) + 1
+	if self.attack_count < 3 then return end
+	self.attack_count = 0
 
-			if attached then
-			self.attack = attached
-			end
-	    
-		        self.attack:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
-			damage_groups = {fleshy = self.damage}
-			}, nil)
- 
-		        part_sking (pos_sk)   		
-		        
-		        self.object:set_animation({x=100, y=120},15, 1, false)      				
-			self.attack:set_pos({x=pp.x,y=pp.y+p_impact,z=pp.z})     
-			core.sound_play("air_impact", {pos = pos_sk, gain = 0.5})
-
-			core.after(1 , function ()
-				self.object:set_animation({x=20, y=60},15, 1, false)   			
-			end)
-				   
-		 --end
-	    end
+	self:set_animation("punch", true)
+        core.sound_play("air_impact", {pos = pos_sk, gain = 0.5})
+        part_sking (pp) 
+        
+	return true 
+	end,	
 	
-	end,
-		
+	--[[	
 	on_die = function(self, pos) 
+	    self:death_anim()
 	    part_summon (pos)
+	    return true
 	end
+	]]
+})
+
+-- SkullKing ARROWS : ======================================================================
+mobs:register_arrow("forgotten_monsters:skullking_arrow", {
+	visual = "cube",
+	--visual = "sprite",
+	visual_size = {x = 0.8, y = 0.8},
+	textures = {"skull_arrow_top.png","skullking_arrosw.png","skull_arrow_side.png","skull_arrow_side.png","skull_arrow_side.png","skull_arrow.png"},
+	--textures = {"smoke_fg.png"},
+	collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+	velocity = 35,
+	--
+	tail = 1,
+	tail_texture = "smoke_fg.png",
+	tail_size = 12,
+	--
+	glow = 5,
+	rotate = 90,
+
+	on_activate = function(self, staticdata, dtime_s)
+	   self.object:set_armor_groups({immortal = 1, fleshy = 100})	
+	        	   
+	   self.damage = 10
+	    
+	  if core.get_modpath("mcl_armor") then
+	    self.damage = 3	  
+          end
+          
+	end,
+
+	hit_player = function(self, player)
+		player:punch(self.object, 1.0, {
+			full_punch_interval = 0.5,
+			damage_groups = {fleshy = self.damage},
+		}, nil)
+	end,
+	
+	
+	hit_node = function(self, pos, node)
+	end,
 })
 
 mobs:register_egg("forgotten_monsters:sking", "Skull King", "skull_king_egg.png", 0)

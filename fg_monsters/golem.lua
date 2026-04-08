@@ -1,13 +1,14 @@
 ---- GOLEM   ( BOSS 2 )------------------------------------------------------------------------------------------------------
 -- sound : https://freesound.org/people/Debsound/sounds/250148/
-local last_attack = 0
-
 mobs:register_mob("forgotten_monsters:golem", {
 	--nametag = "Golem Boss" ,
 	type = "monster",
 	passive = false,
 	attack_npcs = false,
-	attack_type = "dogfight",
+	attack_type = "dogshoot",
+	shoot_interval = 3,
+	shoot_offset = 1.9,
+	arrow = "forgotten_monsters:dark_stone_arrow",
 	pathfinding = true,
 	reach = 6,
 	damage = 11,
@@ -15,9 +16,9 @@ mobs:register_mob("forgotten_monsters:golem", {
 	hp_max = 800,
 	armor = 80,
 	visual = "mesh",
-	visual_size = {x = 17, y = 17},
+	visual_size = {x = 13, y = 13},
 	mesh = "golem.b3d",
-	collisionbox = {-1.0, -0.8, -1.0, 1.0, 2.2, 1.0},
+	collisionbox = {-1.0, -0, -1.0, 1.0, 2.2, 1.0},
 	textures = {
 		{"golem.png"},
 	},
@@ -28,6 +29,7 @@ mobs:register_mob("forgotten_monsters:golem", {
 		--attack = "monster",
 		damage = "damage_golem",
 		death = "punch_golem",
+		shoot_attack = "punch_golem",
 	},	
 	-----------------------
 	pathfinding = 1,
@@ -42,7 +44,6 @@ mobs:register_mob("forgotten_monsters:golem", {
 	floats = 0,
 	view_range = 35,
 	knock_back = false,
-	die_rotate = true,
 	-------------------------
 	drops = {
 		--{name = "forgotten_monsters:golem_trophy", chance = 1, min = 1, max = 1},
@@ -56,13 +57,25 @@ mobs:register_mob("forgotten_monsters:golem", {
 		speed_normal = 15,
 		speed_run = 15,
 		stand_start = 1,
-		stand_end = 10,
-		walk_start = 20,
-		walk_end = 60,
-		run_start = 80,
-		run_end = 120,
-		punch_start = 140,
-		punch_end = 180,
+		stand_end = 20,
+		walk_start = 45,
+		walk_end = 74,
+		run_start = 45,
+		run_end = 75,
+		punch_start = 80,
+		punch_end = 100,
+		punch_loop = false,
+		punch2_start = 105,
+		punch2_end = 125, -- 100 termina a espada
+		punch2_loop = false,
+		shoot_start =130,
+		shoot_end = 150,
+		shoot_speed = 10,
+		--shoot_loop = false,
+		die_start = 155,
+		die_end = 180,
+		die_speed = 20,
+		die_loop = false,
 	},
         
 	after_activate = function(self, staticdata, def, dtime)
@@ -73,38 +86,51 @@ mobs:register_mob("forgotten_monsters:golem", {
          end
 	end,
 
-	custom_attack = function(self, to_attack)	
-	 local current_time = core.get_us_time()
-	 
-	  if current_time - last_attack >= 4 * (10^6)  then 
-		last_attack = current_time 			        
-	   	--for _, player in ipairs(core.get_connected_players()) do
-				     				     
-			local attached = self.attack:get_attach()
-			local pp = self.attack:get_pos()
-			local pos_gl = self.object:get_pos()
-			local p_impact = math.random(0,3)
+	custom_attack = function(self, to_attack)
+        local pp = self.attack:get_pos()
+        
+	self.attack_count = (self.attack_count or 0) + 1
+	if self.attack_count < 4 then return end
+	self.attack_count = 0
 
-			if attached then
-			self.attack = attached
-			end
-			
-			self.attack:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
-			damage_groups = {fleshy = self.damage}
-			}, nil)
-			      		
-		     -- https://freesound.org/people/julianmateo_/sounds/522696/    
-		        self.object:set_animation({x=140, y=180},15, 1, false)      				
-			self.attack:set_pos({x=pp.x,y=pp.y+p_impact,z=pp.z})     			
-			core.sound_play("punch_golem", {pos = pos, gain = 1})				   
-		-- end
-	     end	
+	self:set_animation("punch", true)
+        core.sound_play("punch_golem", {pos = pos_sk, gain = 0.5})
+        part_sking (pp) 
+        
+	return true 
+	end,	
+})
+
+-- Golem ARROWS : ======================================================================
+mobs:register_arrow("forgotten_monsters:dark_stone_arrow", {
+	visual = "cube",
+	visual_size = {x = 0.5, y = 0.5},
+	textures = {"dark_stone_arrow.png","dark_stone_arrow.png","dark_stone_arrow.png","dark_stone_arrow.png","dark_stone_arrow.png","dark_stone_arrow.png"},
+	collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+	velocity = 25,
+	glow = 5,
+	
+	on_activate = function(self, staticdata, dtime_s)
+	   self.object:set_armor_groups({immortal = 1, fleshy = 100})	
+	        	   
+	   self.damage = 7
+	    
+	  if core.get_modpath("mcl_armor") then
+	    self.damage = 2	  
+          end
+          
 	end,
 
-	on_die = function(self, pos) 	
-            part_summon (pos)
-	end
+	hit_player = function(self, player)
+		player:punch(self.object, 1.0, {
+			full_punch_interval = 0.5,
+			damage_groups = {fleshy = self.damage},
+		}, nil)
+	end,
+	
+	
+	hit_node = function(self, pos, node)
+	end,
 })
 
 mobs:register_egg("forgotten_monsters:golem", "Golem", "golem_egg.png", 0)
