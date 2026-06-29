@@ -25,13 +25,13 @@ You can disable the "Skulls in the light" option in the settings, so that skulls
 ---
 ---
 
-1 - [Getting Starded](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Getting_Starded.md)
+1 - [Getting Starded](https://github.com/duckpixeloficial/forgotten_monsters_reworked/wiki)
 
-2 - [Mobs](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Mobs.md)
+2 - [Mobs](https://github.com/duckpixeloficial/forgotten_monsters_reworked/wiki/Mobs)
 
-3 - [Itens](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Itens.md)
+3 - [Itens](https://github.com/duckpixeloficial/forgotten_monsters_reworked/wiki/Itens)
 
-4 - [Recipes](https://codeberg.org/pixelzone/forgotten_monsters_reworked/src/branch/main/fg_Wiki/Recipes.md) 
+4 - [Recipes](https://github.com/duckpixeloficial/forgotten_monsters_reworked/wiki/Recipes) 
 
 
 ---
