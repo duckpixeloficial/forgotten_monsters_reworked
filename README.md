@@ -1,7 +1,7 @@
 ### Forgotten Monsters (Reworked)
 ---
 
-![FG](https://codeberg.org/pixelzone/forgotten_monsters_reworked/raw/branch/main/fg.jpg)
+![FG](https://raw.githubusercontent.com/duckpixeloficial/forgotten_monsters_reworked/refs/heads/main/fg.jpg)
 
 Forgotten Monsters, is modpack inspired by a mod called "Forbidden Island", which adds skulls, spectruns,
 and bosses to your world..
