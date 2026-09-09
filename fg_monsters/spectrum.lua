@@ -37,7 +37,7 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 	floats = 0,
 	view_range = 25,
 	drops = {
-		{name = "forgotten_monsters:spectrum_orb", chance = 2, min = 1, max =1},
+		{name = "forgotten_monsters:spectrum_orb", chance = 1, min = 1, max =1},
 	},
 	water_damage = 0,
 	lava_damage = 0,
