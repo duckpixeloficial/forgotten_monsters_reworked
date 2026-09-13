@@ -98,8 +98,16 @@ core.register_craft({
 })
 
 -- SUMMONS NODES : ====================================================================================
+local recipe_golem = "group:stone"
+
+if core.get_modpath("mcl_deepslate") then 
+   recipe_golem = "mcl_deepslate:deepslate"
+   elseif core.get_modpath("default") then
+   recipe_golem = "default:stone"
+end
+
 core.register_craft({
-	output = "forgotten_monsters:summon_mese_lord",
+	output = "forgotten_monsters:meselord",
 	recipe = {
 		{"forgotten_monsters:fgbook", "forgotten_monsters:fgbook", "forgotten_monsters:fgbook"},
 		{"forgotten_monsters:fgbook", "forgotten_monsters:spectrum_orb_block", "forgotten_monsters:fgbook"},
@@ -107,18 +115,17 @@ core.register_craft({
 	}
 })
 
-
 core.register_craft({
-	output = "forgotten_monsters:summon_golem",
+	output = "forgotten_monsters:golem",
 	recipe = {
-		{"forgotten_monsters:fgbook", "forgotten_monsters:spectrum_orb_block", "forgotten_monsters:fgbook"},
+		{"forgotten_monsters:fgbook", recipe_golem, "forgotten_monsters:fgbook"},
 		{"forgotten_monsters:fgbook", "forgotten_monsters:heart_of_mese", "forgotten_monsters:fgbook"},
-		{"forgotten_monsters:fgbook", "forgotten_monsters:spectrum_orb_block", "forgotten_monsters:fgbook"},
+		{"forgotten_monsters:fgbook", recipe_golem, "forgotten_monsters:fgbook"},
 	}
 })
 
 core.register_craft({
-	output = "forgotten_monsters:summon_sking",
+	output = "forgotten_monsters:sking",
 	recipe = {
 		{"forgotten_monsters:fgbook", "forgotten_monsters:buried_bone_block", "forgotten_monsters:fgbook"},
 		{"forgotten_monsters:buried_bone_block", "forgotten_monsters:eye_of_the_golem", "forgotten_monsters:buried_bone_block"},

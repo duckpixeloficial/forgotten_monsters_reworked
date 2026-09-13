@@ -15,7 +15,7 @@ mobs:register_mob("forgotten_monsters:golem", {
 	arrow = "forgotten_monsters:dark_stone_arrow",
 	pathfinding = true,
 	reach = 6,
-	damage = 11,
+	damage = 20,
 	hp_min = 800,
 	hp_max = 800,
 	armor = 80,
@@ -117,7 +117,7 @@ mobs:register_arrow("forgotten_monsters:dark_stone_arrow", {
 	on_activate = function(self, staticdata, dtime_s)
 	   self.object:set_armor_groups({immortal = 1, fleshy = 100})	
 	        	   
-	   self.damage = 7
+	   self.damage = 20
 	    
 	  if core.get_modpath("mcl_armor") then
 	    self.damage = 2	  
@@ -137,4 +137,4 @@ mobs:register_arrow("forgotten_monsters:dark_stone_arrow", {
 	end,
 })
 
-mobs:register_egg("forgotten_monsters:golem", "Golem", "golem_egg.png", 0)
+mobs:register_egg("forgotten_monsters:golem", "Golem", "summon_boock_golem.png", 0)

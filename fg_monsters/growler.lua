@@ -11,7 +11,7 @@ mobs:register_mob("forgotten_monsters:growler", {
 	hp_min = 80,
 	hp_max = 80,
 	armor = 80,
-	collisionbox = {-0.7, 0.5, -0.7, 0.7, 1.4, 0.7},
+	collisionbox = {-0.9, 0.4, -0.9, 0.9, 0.5, 0.9},
 	visual = "mesh",
 	mesh = "glowler.b3d",
 	glow = 2,

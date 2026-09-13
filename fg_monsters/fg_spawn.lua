@@ -86,7 +86,7 @@ mobs:spawn({
 	nodes = {"air"},
 	neighbors = {"group:leaves"},
 	interval = 60,
-	chance = 2000,	-- 1200,
+	chance = 1200,	-- 1200,
 	min_light = 0,
 	max_light = 7,
 	active_object_count = 1,

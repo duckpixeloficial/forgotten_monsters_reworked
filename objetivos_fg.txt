@@ -1,0 +1,8 @@
+- Supporte a xp no mcl
+- Melhorar AI mobs
+- Retornar coquistas
+- Estruturas (Opção de dasativar estruturas)
+    - Castelo do rei + altar
+    - Arena de pedra + altar
+    - Arena de mese + altar + crystais de mese decorativo
+    - proteção para arenas

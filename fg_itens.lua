@@ -1,8 +1,12 @@
 
 local S = core.get_translator("forgotten_monsters")
 
+-- alias temporario até ano que vem hehe'
 core.register_alias("forgotten_monsters:growler_meat_raw","forgotten_monsters:bug_meat")
 core.register_alias("forgotten_monsters:growler_meat","forgotten_monsters:bug_meat")
+core.register_alias("forgotten_monsters:summon_mese_lord","forgotten_monsters:meselord")
+core.register_alias("forgotten_monsters:summon_golem","forgotten_monsters:golem")
+core.register_alias("forgotten_monsters:summon_sking","forgotten_monsters:sking")
 
 core.register_craftitem("forgotten_monsters:growler_leather", {
     description = S("Growler Leather"),
@@ -229,15 +233,15 @@ core.register_craft({
 end
 
 if core.get_modpath("mcl_bone_meal") then
-core.register_craft({
-    type = "shapeless",
-    output = "mcl_bone_meal:bone_meal",
-    recipe = {
-        "forgotten_monsters:buried_bone",   
-    },
-})
-
+	core.register_craft({
+		type = "shapeless",
+		output = "mcl_bone_meal:bone_meal",
+		recipe = {
+			"forgotten_monsters:buried_bone",   
+		},
+	})
 end
+
 -- ================================================ CURA : ======================================================
 -- Sound : https://freesound.org/people/craigglenday/sounds/517173/
 
@@ -288,11 +292,6 @@ core.register_craftitem("forgotten_monsters:healing", {
 		return itemstack
 	end	
 })
--- crumpled paper ===============================================================================================
-core.register_craftitem("forgotten_monsters:crumpled_paper", {
-    description = S("Crumpled Paper"),
-    inventory_image = "old_bottle.png",
-})
 
 -- BOOK : ======================================================================================================= Livro
 local book_txt = S("Welcome to your new journey,")
@@ -306,7 +305,7 @@ local book_txt7 = S("Have fun!")
 core.register_craftitem("forgotten_monsters:fgbook", {
     description = S("Forgotten Book"),
     inventory_image = "forgotten_book.png",
-    stack_max = 1,
+    --stack_max = 1,
     groups = {book = 1},
     
     on_use = function(itemstack, user, pointed_thing, pos)
@@ -363,66 +362,7 @@ core.register_craftitem("forgotten_monsters:eye_of_the_golem", {
     description = "Eye of the Golem", -- falta tradução
     inventory_image = "Eye_of_the_golem.png", 	
 })
---- LIVRO DE INVOCÃO : ===========================================================================================
-core.register_craftitem("forgotten_monsters:summon_mese_lord", {
-    description = S("Mese Lord's Summoning Book"),
-    inventory_image = "summon_boock_meselord.png", 
 
-    on_place = function(itemstack, placer, pointed_thing)
-        
-        if pointed_thing.type == "node" then
-            local pos = pointed_thing.above 
-    	    
-    	     local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}   	     
-             core.add_entity(summon_pos, "forgotten_monsters:meselord")     
-	     part_summon (pos) 
-       
-             itemstack:take_item()
-            return itemstack
-        end
-    end,
-})
-
-core.register_craftitem("forgotten_monsters:summon_golem", {
-    description = S("Golem Summoning Book"),
-    inventory_image = "summon_boock_golem.png", 
-
-    on_place = function(itemstack, placer, pointed_thing)
-        if pointed_thing.type == "node" then
-            local pos = pointed_thing.above 
-    
-             local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
-        
-             core.add_entity(summon_pos, "forgotten_monsters:golem")
-             
-             part_summon (pos) 
-                   
-             itemstack:take_item()
-            return itemstack
-        end
-    end,
-})
-
-core.register_craftitem("forgotten_monsters:summon_sking", {
-    description = S("Skull King Summoning Book"),
-    inventory_image = "summon_boock_skullking.png", 
-
-    on_place = function(itemstack, placer, pointed_thing)
-        
-        if pointed_thing.type == "node" then
-            local pos = pointed_thing.above 
-    
-             local summon_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
-        
-             core.add_entity(summon_pos, "forgotten_monsters:sking")
-             
-             part_summon (pos)
-            
-             itemstack:take_item()
-            return itemstack
-        end
-    end,
-})
 -- =========================================== BLOCOS :  ==========================================================
 core.register_node("forgotten_monsters:buried_bone_block", {
 	description = S("Buried Bone Block"),

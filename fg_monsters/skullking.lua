@@ -14,8 +14,8 @@
 	dogshoot_count2_max = 2,
 	arrow = "forgotten_monsters:skullking_arrow",
 	pathfinding = true,
-	reach = 4,
-	damage = 12,
+	reach = 6,
+	damage = 20,
 	hp_min = 1000,
 	hp_max = 1000,
 	armor = 80,
@@ -97,15 +97,15 @@
 	custom_attack = function(self, to_attack)
         local pp = self.attack:get_pos()
         
-	self.attack_count = (self.attack_count or 0) + 1
-	if self.attack_count < 3 then return end
-	self.attack_count = 0
+		self.attack_count = (self.attack_count or 0) + 1
+		if self.attack_count < 3 then return end
+		self.attack_count = 0
 
-	self:set_animation("punch", true)
-        core.sound_play("air_impact", {pos = pos_sk, gain = 0.5})
-        part_sking (pp) 
-        
-	return true 
+		self:set_animation("punch", true)
+			core.sound_play("air_impact", {pos = pos_sk, gain = 0.5})
+			part_sking (pp) 
+			
+		return true 
 	end,	
 	
 	--[[	
@@ -137,7 +137,7 @@ mobs:register_arrow("forgotten_monsters:skullking_arrow", {
 	on_activate = function(self, staticdata, dtime_s)
 	   self.object:set_armor_groups({immortal = 1, fleshy = 100})	
 	        	   
-	   self.damage = 10
+	   self.damage = 20
 	    
 	  if core.get_modpath("mcl_armor") then
 	    self.damage = 3	  
@@ -157,4 +157,4 @@ mobs:register_arrow("forgotten_monsters:skullking_arrow", {
 	end,
 })
 
-mobs:register_egg("forgotten_monsters:sking", "Skull King", "skull_king_egg.png", 0)
+mobs:register_egg("forgotten_monsters:sking", "Skull King", "summon_boock_skullking.png", 0)

@@ -19,8 +19,8 @@ mobs:register_mob("forgotten_monsters:meselord", {
 	dogshoot_count_max =5,
 	arrow = "forgotten_monsters:meselord_arrow",
 	pathfinding = true,
-	reach = 4,
-	damage = 7,
+	reach = 6,
+	damage = 20,
 	hp_min = 450,
 	hp_max = 450,
 	armor = 80,
@@ -84,8 +84,16 @@ mobs:register_mob("forgotten_monsters:meselord", {
 		die_loop = false,
 	},
         
-        custom_attack = function(self, to_attack)
-        local pp = self.attack:get_pos()
+	after_activate = function(self, staticdata, def, dtime)
+	  local pos_boss = tostring(self.object:get_pos())
+	  
+	  if core.get_modpath("mcl_armor") then
+	   self.damage = 3
+         end
+	end,
+
+    custom_attack = function(self, to_attack)
+    local pp = self.attack:get_pos()
         
 	self.attack_count = (self.attack_count or 0) + 1
 	if self.attack_count < 4 then return end
@@ -116,7 +124,7 @@ mobs:register_arrow("forgotten_monsters:meselord_arrow", {
 	on_activate = function(self, staticdata, dtime_s)
 	   self.object:set_armor_groups({immortal = 1, fleshy = 100})	
 	        	   
-	   self.damage = 7
+	   self.damage = 20
 	    
 	  if core.get_modpath("mcl_armor") then
 	    self.damage = 2	  
@@ -136,4 +144,4 @@ mobs:register_arrow("forgotten_monsters:meselord_arrow", {
 	end,
 })
 
-mobs:register_egg("forgotten_monsters:meselord", "Mese Lord", "mese_lord_egg.png", 0)
+mobs:register_egg("forgotten_monsters:meselord", "Mese Lord", "summon_boock_meselord.png", 0)

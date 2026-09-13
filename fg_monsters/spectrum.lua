@@ -37,7 +37,7 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 	floats = 0,
 	view_range = 25,
 	drops = {
-		{name = "forgotten_monsters:spectrum_orb", chance = 1, min = 1, max =1},
+		{name = "forgotten_monsters:spectrum_orb", chance = 2, min = 1, max =1},
 	},
 	water_damage = 0,
 	lava_damage = 0,
@@ -53,6 +53,24 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 		shoot_start = 100,
 		shoot_end = 129,
 	},
+
+	do_custom = function(self, dtime)
+		local pos = self.object:get_pos()
+		local node_pos = {x = pos.x, y = pos.y - 10, z = pos.z}
+		local vnode = core.get_node(node_pos)
+		local vel = self.object:get_velocity()
+        
+		self.hflay = (self.hflay or 0) + 1
+
+		if self.hflay < 5 then return end
+		self.hflay = 0
+
+		if vnode.name == "air" then
+				vel.y = -1
+		end
+		self.object:set_velocity(vel)
+	end
+	
 })
 -- ARROW ================================================================================================
 core.register_craftitem("forgotten_monsters:spectrum_magic_arrow", {
