@@ -88,20 +88,20 @@ mobs:register_mob("forgotten_monsters:golem", {
 	  if core.get_modpath("mcl_armor") then
 	   self.damage = 3
          end
-	end,
+	  end,
 
 	custom_attack = function(self, to_attack)
         local pp = self.attack:get_pos()
         
-	self.attack_count = (self.attack_count or 0) + 1
-	if self.attack_count < 4 then return end
-	self.attack_count = 0
+		self.attack_count = (self.attack_count or 0) + 1
+		if self.attack_count < 4 then return end
+		self.attack_count = 0
 
-	self:set_animation("punch", true)
-        core.sound_play("punch_golem", {pos = pos_sk, gain = 0.5})
-        part_sking (pp) 
-        
-	return true 
+		self:set_animation("punch", true)
+			core.sound_play("punch_golem", {pos = pos_sk, gain = 0.5})
+			part_sking (pp) 
+			
+		return true 
 	end,	
 })
 
